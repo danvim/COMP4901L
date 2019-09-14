@@ -1,4 +1,4 @@
-function [img1] = myImageFilter(img0, h)  
+function [img1] = myImageFilter(img0, h)      
     A = img0;
     
     % add padding so the result have same size
@@ -8,6 +8,7 @@ function [img1] = myImageFilter(img0, h)
     C = im2col(B,size(h));
     
     % convert the kernal into vector
+    % hr = rot90(h, 2);
     E = h(:);
     
     % each column of C dot product with kernal vector
@@ -17,12 +18,20 @@ function [img1] = myImageFilter(img0, h)
     
     % convert the vector back to matrix
     H = reshape(G,size(A));
+    H = rot90(H,2);
+    img1 = H
     
     % commented code is for varifying the vectorized code is correct
-    %hr = rot90(h, 2);
-    %expected = conv2(B,hr,'valid');
-    %disp(H);
-    %disp(expected);
-    %assert(isequal(H, expected));
-    img1 = H;
+    %  expected = conv2(B,h,'valid');
+    %  img1 = expected;
+    %  if(~isequal(img1, expected))
+    %     disp(img0);
+    %     disp('img1');
+    %     disp(img1);
+    %     disp('expected');
+    %     disp(expected);
+    %     disp('img1 - expected');
+    %     disp(img1-expected);
+    %     assert(false);
+    % end
 end
