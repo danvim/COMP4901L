@@ -8,9 +8,10 @@ function [img1] = myEdgeFilter(img0, sigma)
   imgx = myImageFilter(A,-1*[-1 0 1; -2 0 2; -1 0 1]); % horizontal edge
   imgy = myImageFilter(A,-1*[-1 -2 -1; 0 0 0; 1 2 1]); % verticle edge
   
-  G = sqrt(imgx.^2 + imgy.^2);
-  angles = mod(rad2deg(atan2(imgy, imgx)),180);
+  G = sqrt(imgx.^2 + imgy.^2); % magnitude of gradient
+  angles = mod(rad2deg(atan2(imgy, imgx)),180); % angle of edge
   
+  % one hot matrices indicating the direction of edges
   idx0 = (angles < 45/2) | (180 - angles) <= (45/2);
   idx45 = angles >= (45/2) & angles < (45 + 45/2);
   idx90 = angles >= (45+45/2) & angles < (90 + 45/2);
@@ -50,4 +51,6 @@ function [img1] = myEdgeFilter(img0, sigma)
   
   img1 = G;
   img1(~NMS) = 0;
+  m = max(img1(:));
+  img1 = img1/m;
 end

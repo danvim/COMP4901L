@@ -4,7 +4,7 @@ datadir     = '../data';    %the directory containing the images
 resultsdir  = '../results'; %the directory for dumping results
 
 %parameters
-sigma     = 2;
+sigma     = 4;
 threshold = 0.03;
 rhoRes    = 2;
 thetaRes  = pi/90;
