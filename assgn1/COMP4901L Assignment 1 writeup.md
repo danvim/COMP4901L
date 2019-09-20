@@ -72,3 +72,10 @@ The code does not work well with all the images with single set of parameters. A
 If the threshold is changed to 0.3, there are less false detection.
 
 ![1568813059015](individual-results\img04.jpg_04lines.png)
+
+## 4. Own images
+
+![](ec\results\ec01_04lines.png)
+![](ec\results\ec02_04lines.png)
+![](ec\results\ec03_04lines.png)
+![](ec\results\ec04_04lines.png)
