@@ -32,6 +32,7 @@ for i = 1:numel(imglist)
     [H,rhoScale,thetaScale] = myHoughTransform(Im, threshold, rhoRes, thetaRes);
     [rhos, thetas] = myHoughLines(H, nLines);
     lines = houghlines(Im>threshold, 180*(thetaScale/pi), rhoScale, [rhos,thetas],'FillGap',5,'MinLength',10);
+    lines2 = myHoughLineSegments(rhoScale(rhos), thetaScale(thetas), Im>threshold);
     
     %everything below here just saves the outputs to files%
     fname = sprintf('%s/%s_01edge.png', resultsdir, imgname);
@@ -45,6 +46,14 @@ for i = 1:numel(imglist)
     img2 = img;
     for j=1:numel(lines)
        img2 = drawLine(img2, lines(j).point1, lines(j).point2); 
+    end     
+    imwrite(img2, fname);
+    
+    fname = sprintf('%s/%s_05my_lines.png', resultsdir, imgname);
+    
+    img2 = img;
+    for j=1:numel(lines2)
+       img2 = drawLine(img2, lines2(j).point1, lines2(j).point2); 
     end     
     imwrite(img2, fname);
 end

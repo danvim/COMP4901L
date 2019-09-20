@@ -19,11 +19,11 @@ $$
 \end{align}
 $$
 
-Then the amplitude $A = \sqrt{x^2 + y^2}$ and the phrase $\phi = \tan^{-1}\frac{x}{y}$
+Then the amplitude $A = \sqrt{x^2 + y^2}$ and the phase $\phi = \tan^{-1}\frac{x}{y}$
 
 ### 1.2.
 
-It is because the slope is possibly infinity that is not calculatable using computer, and it is also more numerically stable using the rho theta form then slope intercept form since relation between slope and its binary representation is not linear.
+It is because the domain of $m$ and $c$ is $(-\infty, \infty)$ but the domain of $\rho$ and $\theta$ is finite. Assuming the origin of the Hough space is at the bottom left hand corner, $\rho$ has domain of $[0, \sqrt{W^2+H^2}]$ and $\theta$ only occupies two quadrants, consuming $[0, \pi]$. The normal form is easier to be represented in common programming languages to form the accumulative array approximating the domain for the voting process.
 
 Intercept = $\frac{\rho}{\sin\theta}$
 
@@ -62,6 +62,28 @@ Apply a sharpening filter
 ### 2.4 Fitting line segments for visualization
 
 ![](results\img01_04lines.png)
+
+### 2.5 MyHoughLines
+
+###### MatLab
+
+![](ec/results/ec01_04lines.png)
+
+![](ec/results/ec02_04lines.png)
+
+![](ec/results/ec04_04lines.png)
+
+
+
+###### Custom Function
+
+![ec04_05my_lines](ec/results/ec01_05my_lines.png)
+
+![ec04_05my_lines](ec/results/ec02_05my_lines.png)
+
+![ec04_05my_lines](ec/results/ec04_05my_lines.png)
+
+The custom implemented one is less accurate than MatLab's function. Sometimes with extra edges and many of these extra edges are not aligning with the gradients.
 
 ## 3. Experiments
 
