@@ -98,6 +98,11 @@ If the threshold is changed to 0.3, there are less false detection.
 ## 4. Own images
 
 ![](ec\results\ec01_04lines.png)
+
 ![](ec\results\ec02_04lines.png)
+
 ![](ec\results\ec03_04lines.png)
+
 ![](ec\results\ec04_04lines.png)
+
+![](ec\results\ec05_04lines.png)
