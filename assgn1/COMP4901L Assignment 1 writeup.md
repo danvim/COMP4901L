@@ -63,6 +63,28 @@ Apply a sharpening filter
 
 ![](results\img01_04lines.png)
 
+### 2.5 MyHoughLines
+
+###### MatLab
+
+![](ec/results/ec01_04lines.png)
+
+![](ec/results/ec02_04lines.png)
+
+![](ec/results/ec04_04lines.png)
+
+
+
+###### Custom Function
+
+![ec04_05my_lines](ec/results/ec01_05my_lines.png)
+
+![ec04_05my_lines](ec/results/ec02_05my_lines.png)
+
+![ec04_05my_lines](ec/results/ec04_05my_lines.png)
+
+The custom implemented one is less accurate than MatLab's function. Sometimes with extra edges and many of these extra edges are not aligning with the gradients.
+
 ## 3. Experiments
 
 The code does not work well with all the images with single set of parameters. As for the optimal set of parameter, some photos miss the big edge while some photo identify false edges. The step of thresholding the edge magnitude impact the most, therefore the optimal parameters of different images is differed by the threshold of edge detection. For example, threshold of 0.03 is good for img01 (see 2.4) but bad for img04 as you can see there are many wrong edges detected in the sky.
