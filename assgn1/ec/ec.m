@@ -53,7 +53,7 @@ for i = 1:numel(imglist)
     
     img2 = img;
     for j=1:numel(lines2)
-       img2 = drawLine(img2, lines2(j).point1, lines2(j).point2); 
+       img2 = drawLine(img2, lines2(j).start, lines2(j).end); 
     end     
     imwrite(img2, fname);
 end
