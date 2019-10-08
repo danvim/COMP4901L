@@ -85,4 +85,18 @@ The trivial solution of $\mathbf{h}$ is $\mathbf{0}$.
 
 # Q2.1
 
+## Q2.1.4
+
 ![](/home/daniel/Documents/projects/COMP4901L/assgn2_no_cv_package/saved_figures/2_1_4.png)
+
+## Q2.1.5
+
+![](/home/daniel/Documents/projects/COMP4901L/assgn2_no_cv_package/saved_figures/2_1_5_0.png)
+
+![](/home/daniel/Documents/projects/COMP4901L/assgn2_no_cv_package/saved_figures/2_1_5_1.png)
+
+![](/home/daniel/Documents/projects/COMP4901L/assgn2_no_cv_package/saved_figures/2_1_5_2.png)
+
+![](/home/daniel/Documents/projects/COMP4901L/assgn2_no_cv_package/saved_figures/2_1_5_3.png)
+
+There is a clear correlation between the rotation difference of the images and the decrease in point correspondences. The reason for this is BRIEF creates a representation of a spacial patch around the target points using random (x, y) pairs intensity comparisons and compare these representations to some targets, thus they are sensitive to rotations since the larger the differences, the more difference there will be in the (x, y) pair insensity comparisons. So for instance, a plain dot will not be much affected by the rotation, but areas where patches containing multiple features, will be penalized by the algorithm.
