@@ -100,3 +100,5 @@ The trivial solution of $\mathbf{h}$ is $\mathbf{0}$.
 ![](/home/daniel/Documents/projects/COMP4901L/assgn2_no_cv_package/saved_figures/2_1_5_3.png)
 
 There is a clear correlation between the rotation difference of the images and the decrease in point correspondences. The reason for this is BRIEF creates a representation of a spacial patch around the target points using random (x, y) pairs intensity comparisons and compare these representations to some targets, thus they are sensitive to rotations since the larger the differences, the more difference there will be in the (x, y) pair insensity comparisons. So for instance, a plain dot will not be much affected by the rotation, but areas where patches containing multiple features, will be penalized by the algorithm.
+
+Other descriptors like SIFT and SURF are invariant to rotations. Because they take rotations into consideration when designing the algorithm. ORB is then a variant of BRIEF that adds invariance of rotation to the algorithm. Under these descriptors, the plot will change significantly, for number of matching points against degrees of rotations will result in a more steady and constant line.
