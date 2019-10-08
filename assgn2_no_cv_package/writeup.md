@@ -80,3 +80,9 @@ $$
 ### 4.
 
 The trivial solution of $\mathbf{h}$ is $\mathbf{0}$.
+
+**(I don't know)**
+
+# Q2.1
+
+![](/home/daniel/Documents/projects/COMP4901L/assgn2_no_cv_package/saved_figures/2_1_4.png)
