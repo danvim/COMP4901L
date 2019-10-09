@@ -8,25 +8,19 @@
 
 ## Q1.1 Homography
 
-$$
-\bf{x_1}\equiv\bf{H}\bf{x^2}\tag{1}
-$$
-
-We know that some $\bf{x_1} = \bf{P_1}\bf{x_\pi}$ for $\bf{x_\pi}$ is the object of the image point $\bf{x_1}$ in as a 3D vector. And the same goes to $\bf{x_2} = \bf{P_2}\bf{x_\pi}$ by definition. Then in the 3D space, the image planes are simply related by one rotational transformation $\bf{R}$ and one translational transformation $\bf{T}$, mapping the camera matrices from one to another.
-
-**(Help me Dipsy 😂)**
+Since $\bf{x_\pi}$ is on a plane, it only has degree of freedom of 2, then there exist a unique bijection from its local 2D coordinate on plane $\Pi$ and its 3D global coordinate. Then we can use a 2D coordinate system on $\Pi$ to represent the points on $\Pi$ in 3D. Then we can use a 3x3 matrix to represent all translation, rotation, scaling, skweling, perspective and intrinsic camera parameters to transform the 2D image coordinate system into 2D $\Pi$ plane coordinate system or inversely transform from $\Pi$ plane into image. Finally we can have a homography matrix $\bf{H}$ that can first map $\bf{x_2}$ from image 2 to plane $\Pi$ in 2D intrinsically and then map back to image 1 which correspondingly $\bf{x_1}$. 
 
 ## Q1.2 Correspondences
 
-### 1.
+### 1.2.1.
 
 8
 
-### 2.
+### 1.2.2.
 
 4 pairs of point correspondences
 
-### 3.
+### 1.2.3.
 
 $$
 \let\vec\mathbf
@@ -77,6 +71,101 @@ $$
     \end{bmatrix}
 $$
 
-### 4.
+### 1.2.4.
 
 The trivial solution of $\mathbf{h}$ is $\mathbf{0}$.
+
+As there are non trivial solution, null space is non empty, $\bf A$ is not full rank.
+
+There exist an eigenvalue of 0, which implies any vector parallel to its eigenvector that correspond to this eigen value of 0 is also an eigenvector.
+
+## Q1.3 Homography under rotation
+
+Let $\bf{X} = \begin{bmatrix}x\\y\\z\\1\end{bmatrix}, \bf{x_1} = \begin{bmatrix}x_1\\ y_1\\ z_1 \end{bmatrix}, \bf{x_2} = \begin{bmatrix}x_2\\ y_2\\ z_2\end{bmatrix}$
+$$
+[x_2,y_2,z_2]^T = \vec{x_2} = \vec{K_2[R|0]X} = \vec{K_2 R} [x,y,z]^T\\
+\Rightarrow [x,y,z]^T = \vec{R^{-1}K_2^{-1}x_2}
+$$
+Then, we have
+
+ $\vec{x_1} = \vec{K_1[I|0]X}=\vec{K_1}[x,y,z]^T = \vec{K_1R^{-1}K_2^{-1}x_2}$
+
+By setting $\vec{H = K_1 R^{-1} K_2^{-1}}$, we have $\vec{x_1 = H x_2}$
+
+## Q1.4 Understanding homographies under rotation
+
+A rotation of $2\theta$ is equivalent with rotating $\theta$ twice. Since Rotating $\theta$ is muliplying $\vec H$ for once, multiply $\vec H$ again we have total rotation of $2\theta$, equivalently we can say multiplying $\vec H^2$. More rigorously, let the homogenous coordinate of the scene point be $\vec X$, 3D coordinate be $\vec x$, we have.
+$$
+\vec{x_1 = K[I|0]X = Kx}\\
+\vec{x_2 = K[R|0]X = KRx} \implies \vec{Rx=K^{-1}x_2} \implies \vec{x=R^{-1}K^{-1}x_2}\\
+\vec{x_1 = H x_2} \text{ and } \vec{x_1 = KR^{-1}K^{-1}x_2} \implies \vec{H=KR^{-1}K^{-1}}\\
+\vec{x_3 = K[R^2|0]X = KR^2x} \implies \vec{x = R^{-2}K^{-1}}\\
+\vec{x_1 = KR^{-2}K^{-1}x_3 = KR^{-1}K^{-1}KR^{-1}K^{-1}x_3 = H^2x_3}
+$$
+
+
+## Q1.5 Limitation of the planar homography
+
+It is because general senario the scene points have degree of freedom of 3, $\vec H$ does not have enough dimension to fully map a point from one view port to another view port.
+
+## Q1.6 Behavior of lines under perspective projections
+
+Perspective projection matrix $\vec P = \begin{bmatrix}
+\alpha_x & s & p_x \\
+0 & \alpha_y & p_y \\ 
+0 & 0 & 1
+\end{bmatrix}\vec{[I|0]}$
+
+A line in 3D can be parametrized as $\vec{X}(t) = [x(t), y(t), z(t), 1]^T$
+
+Then in the projected 2D
+
+$\vec{x = PX}(t) = \begin{bmatrix}\alpha_x x(t) + sy(t) + p_xz(t)\\
+\alpha_yy(t) + p_yz(t)\\
+z(t)\end{bmatrix}$ which is also a function of $t$, it is a line.
+
+A straight line in 3D will be projected as a straight line in 2D.
+
+Let the straight line in 3D be $\vec L(t) = \vec X + t\vec V$, where $\vec X = [x,y,z,1]^T, \vec V = [a,b,c,0], t$ is arbitary scalar.
+
+Apply perspective projection on $\vec L$, we have 
+
+$$
+\begin{aligned}
+\vec l(t)
+&= \vec P\vec L(t) \\
+&= \vec{P}(\vec X + t \vec V) \\
+&=
+\begin{bmatrix}
+	\alpha_xx+sy+p_xz\\
+	\alpha_yy+p_yz\\
+	z
+\end{bmatrix}
++t\begin{bmatrix}
+	\alpha_xa+sb+p_xc\\
+	\alpha_yb+p_yc\\
+	c
+\end{bmatrix}
+\end{aligned}
+$$
+
+Convert $\vec l(t)$ from homogeneous coordinate to ordinary 2D coordinate, we have
+$$
+\vec l(t) = 
+\begin{bmatrix}
+	\frac{\alpha_xx+sy+p_xz + t(\alpha_xa+sb+p_xc}{z+tc})\\
+	\frac{\alpha_yy+p_yz + t(\alpha_yb+p_yc)}{z+tc}
+\end{bmatrix}
+$$
+By taking $t' = \frac{1}{z+tc}$, $t’$ is still an arbitary real constant scalar. Then we have
+$$
+\vec l(t') = \begin{bmatrix}
+	\alpha_xx+sy+p_xz\\
+	\alpha_yy+p_yz
+\end{bmatrix}
++t'\begin{bmatrix}
+	\alpha_xa+sb+p_xc\\
+	\alpha_yb+p_yc
+\end{bmatrix}
+$$
+Which is also an equation of straight line.
