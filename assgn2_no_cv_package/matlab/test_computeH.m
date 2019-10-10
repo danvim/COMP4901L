@@ -1,14 +1,14 @@
-cv_cover = imread('../data/cv_cover.jpg');
-cv_desk = imread('../data/cv_desk.png');
+H = [
+    9 8 7;
+    6 5 4;
+    4 80 1
+    ];
 
-[locs1, locs2] = matchPics(cv_cover, cv_desk);
+p1 = [2 2 1; 4 8 1; 2 -2 1; 30 -4 1];
 
-H = computeH_norm(locs2, locs1);
+p2 = (H * p1')';
 
-H(1:2,3) = [1;1];
+p2 = p2 ./ p2(:,3); 
 
-tform = projective2d(H');
-
-J = imwarp(cv_cover,tform);
-
-figure; imshow(J);
+H_ = computeH_norm(p2, p1);
+H_ = H_ ./ H_(3,3);

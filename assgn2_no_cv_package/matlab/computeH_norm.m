@@ -1,13 +1,13 @@
-function [H2to1] = computeH_norm(x1, x2)
+function [H2to1] = computeH_norm(X1, X2)
 SQ_2 = sqrt(2);
 
 %% Compute centroids of the points
-x1_mean = mean(x1);
-x2_mean = mean(x2);
+x1_mean = mean(X1);
+x2_mean = mean(X2);
 
 %% Shift the origin of the points to the centroid
-t1 = x1 - x1_mean;
-t2 = x2 - x2_mean;
+t1 = X1 - x1_mean;
+t2 = X2 - x2_mean;
 
 %% Normalize the points so that the average distance from the origin is equal to sqrt(2).
 d1 = sqrt(t1(:,1).^2 + t1(:,2).^2);
@@ -49,8 +49,7 @@ Ts2 = [
 T2 = Ts2 * Tt2;
 
 %% Compute Homography
-H = computeH(n2, n1);
+H = computeH(n1, n2);
 
 %% Denormalization
 H2to1 = T1 \ H * T2;
-H2to1 = H2to1 ./ H2to1(3,3);

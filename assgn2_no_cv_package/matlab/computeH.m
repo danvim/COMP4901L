@@ -1,26 +1,26 @@
-function [ H2to1 ] = computeH( x1, x2 )
+function [ H2to1 ] = computeH( X1, X2 )
 %COMPUTEH Computes the homography between two sets of points
-x1 = double(x1);
-x2 = double(x2);
+X1 = double(X1);
+X2 = double(X2);
 
 %% Estimate normalized homography H
-n1x = x1(:,1);
-n1y = x1(:,2);
-n2x = x2(:,1);
-n2y = x2(:,2);
+x1 = X1(:,1);
+y1 = X1(:,2);
+x2 = X2(:,1);
+y2 = X2(:,2);
 
-[len, ~] = size(n1x);
+[len, ~] = size(x1);
 
 o = ones([len, 1]);
 z3 = zeros([len, 3]);
 
 A = [
-    -n2x -n2y -o z3 n1x.*n2x n1x.*n2y n1x;
-    z3 -n2x -n2y -o n1y.*n2x n1y.*n2y n1y
+    -x2   -y2   -o   z3               x1.*x2   x1.*y2   x1;
+    z3               -x2   -y2   -o   y1.*x2   y1.*y2   y1
     ];
 
 [~, ~, V] = svd(A);
 
-H2to1 = reshape(V(:, end), 3, 3);
+H2to1 = reshape(V(:, end), 3, 3)';
 
 end
