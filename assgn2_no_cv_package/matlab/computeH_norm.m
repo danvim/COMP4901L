@@ -16,11 +16,18 @@ d2 = sqrt(t2(:,1).^2 + t2(:,2).^2);
 m1 = max(d1);
 m2 = max(d2);
 
-s1 = SQ_2 / m1;
-s2 = SQ_2 / m2;
-
-n1 = t1 * s1;
-n2 = t2 * s2;
+if m1 ~= 0
+    s1 = SQ_2 / m1;
+    n1 = t1 * s1;
+else
+    n1 = t1;
+end
+if m2 ~= 0
+    s2 = SQ_2 / m2;
+    n2 = t2 * s2;
+else
+    n2 = t2;
+end
 
 %% similarity transform 1
 Tt1 = [
