@@ -173,6 +173,20 @@ Which is also an equation of straight line.
 
 # Q2.1
 
+## Q2.1.1 FAST vs Harris
+
+The FAST detector is, given a potential corner pixel $p$ and a constant radius $r$, for all pixel $q$ which have a distance $r$ away from $p$, suppose $g(p)$ is getting the grayscale value at $p$, $N$ be number of $q$ such that $|g(p)-g(q)|>\epsilon$ where $\epsilon$ is some positive constant threshold, report $p$ is a corner if $N$ is greater than some certain threshold. There is an additional opimization that is chose 4 points from the set of $q$ where each of them are 90 degree apart, report $p$ is not a corner before checking other $q$ if less than 3 of the 4 points do not have significant different in grayscale level with $p$. In worse case, when detecting a single corner, number of neighbours that FAST need to calculate is bounded by $8r$.
+
+In Harris corner detector, we need to calculate the gradient of the whole image and then for each potential corner, it sum the gradients in the kernal to get $\sum I_x^2$, $\sum I_y^2$ and $\sum I_x I_y$. In all case, when detecting a single corner, number of the neightbours that Harris need to calculate is $O(r^2)$ where $r$ is the kernal size, Harris also need to calculate keep gradient image in x and y direction in the memory. Hence FAST is more calculation and memory efficient than Harris corner detection, meanwhile less rigourous than Harris corner detector that it does not take the physical definition of corner in account, that is a corner is defined by two edges in different direction.
+
+## Q2.1.2 BRIEF Descriptor
+
+The BRIEF descriptor gives each feature point a binary string of certain length, each bit is determined by whether a pair of pixel within the window has difference greater than some certain threshold, then two corners have highest corresponding bit matched are paired. In contrast with the filter banks which describes corners using the reponse of various filter, BRIEF uses a single bit string, it is much faster, however it is sensitive with noise, scale and rotation.
+
+## Q2.1.3 Matching Methods
+
+Hamming distance compares the number of bits needed to be flipped in order to make two bit string the same. In the case of BRIEF descriptor, it actually means number of sample pairs that the two corners does not match, where the Euclidean distance does not have a physical meaning on this, and don’t need to call the expensive sqrt operation.
+
 ## Q2.1.4
 
 ![](saved_figures/2_1_4.png)
