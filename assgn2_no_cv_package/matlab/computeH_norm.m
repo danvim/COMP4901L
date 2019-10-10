@@ -53,3 +53,4 @@ H = computeH(n2, n1);
 
 %% Denormalization
 H2to1 = T1 \ H * T2;
+H2to1 = H2to1 ./ H2to1(3,3);

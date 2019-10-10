@@ -5,8 +5,8 @@ x2 = double(x2);
 
 %% Estimate normalized homography H
 n1x = x1(:,1);
-n1y = x2(:,2);
-n2x = x1(:,1);
+n1y = x1(:,2);
+n2x = x2(:,1);
 n2y = x2(:,2);
 
 [len, ~] = size(n1x);
@@ -19,6 +19,8 @@ A = [
     z3 -n2x -n2y -o n1y.*n2x n1y.*n2y n1y
     ];
 
-H2to1 = A \ zeros([len*2, 1]);
+[~, ~, V] = svd(A);
+
+H2to1 = reshape(V(:, end), 3, 3);
 
 end
