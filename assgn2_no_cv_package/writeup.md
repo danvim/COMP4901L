@@ -211,4 +211,12 @@ I do not see this happening, probably because `warpH` has already had the proble
 
 ### 6. 
 
-![](/home/daniel/Documents/projects/COMP4901L/assgn2_no_cv_package/saved_figures/harrypotterized.png)
+![](saved_figures/harrypotterized.png)
+
+## Extra Credit
+
+### Panorama
+
+![](saved_figures/pano.png)
+
+![](saved_figures/pano2.png)
