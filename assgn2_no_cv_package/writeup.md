@@ -8,7 +8,13 @@
 
 ## Q1.1 Homography
 
-Since $\bf{x_\pi}$ is on a plane, it only has degree of freedom of 2, then there exist a unique bijection from its local 2D coordinate on plane $\Pi$ and its 3D global coordinate. Then we can use a 2D coordinate system on $\Pi$ to represent the points on $\Pi$ in 3D. Then we can use a 3x3 matrix to represent all translation, rotation, scaling, skweling, perspective and intrinsic camera parameters to transform the 2D image coordinate system into 2D $\Pi$ plane coordinate system or inversely transform from $\Pi$ plane into image. Finally we can have a homography matrix $\bf{H}$ that can first map $\bf{x_2}$ from image 2 to plane $\Pi$ in 2D intrinsically and then map back to image 1 which correspondingly $\bf{x_1}$. 
+Since $\bf{x_\pi}$ is on a plane, it only has degree of freedom of 2, then there exist a unique bijection from its local 2D coordinate on plane $\Pi$ and its 3D global coordinate. Then we can use a 2D coordinate system on $\Pi$ to represent the points on $\Pi$ in 3D. Then we can use a 3x3 matrix to represent all translation, rotation, scaling, skweling, perspective and intrinsic camera parameters to transform the 2D image coordinate system into 2D $\Pi$ plane coordinate system or inversely transform from $\Pi$ plane into image. Finally we can have a homography matrix $\bf{H}$ that can first map $\bf{x_2}$ from image 2 to plane $\Pi$ in 2D intrinsically and then map back to image 1 which correspondingly $\bf{x_1}$.
+
+$\vec{x_1 = P_1X }, \vec{x_2 = P_2X}$
+
+Define peusdo inverse of $\vec P_2$ as $\vec P_2^g$ so that $\vec{P_2^gP_2X = X}$, then $\vec{X = }c\vec{P_2^gx_2}$ and $\vec{P_2^g}$ have dimension 4x3, $c$ is some scalar.
+
+Then $\vec{x_1 = }c\vec{P_1P_2^gx_2}$, define $\vec H = c\vec{P_1P_2^g}$ we have $\vec{x_1 = Hx_2}$ and $\vec H$ has dimension3x3.
 
 ## Q1.2 Correspondences
 
@@ -116,17 +122,9 @@ Perspective projection matrix $\vec P = \begin{bmatrix}
 0 & 0 & 1
 \end{bmatrix}\vec{[I|0]}$
 
-A line in 3D can be parametrized as $\vec{X}(t) = [x(t), y(t), z(t), 1]^T$
-
-Then in the projected 2D
-
-$\vec{x = PX}(t) = \begin{bmatrix}\alpha_x x(t) + sy(t) + p_xz(t)\\
-\alpha_yy(t) + p_yz(t)\\
-z(t)\end{bmatrix}$ which is also a function of $t$, it is a line.
-
 A straight line in 3D will be projected as a straight line in 2D.
 
-Let the straight line in 3D be $\vec L(t) = \vec X + t\vec V$, where $\vec X = [x,y,z,1]^T, \vec V = [a,b,c,0], t$ is arbitary scalar.
+Let the straight line in 3D be $\vec L(t) = \vec X + t\vec V$, where $\vec X = [x,y,z,1]^T, \vec V = [a,b,c,d], t$ is arbitary scalar.
 
 Apply perspective projection on $\vec L$, we have 
 
