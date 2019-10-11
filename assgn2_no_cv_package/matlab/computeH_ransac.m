@@ -6,7 +6,7 @@ function [ bestH2to1, inliers] = computeH_ransac( locs1, locs2)
 
 % T = 5000; % choosing p = 0.95 and e = 0.6. can tweak later on
 % T = 13000; % choosing p = 0.95 and e = 0.65.
-T = 100000;
+T = 5000;
 [l, ~] = size(locs1);
 d = 20;
 inliersCount = 0;
@@ -22,7 +22,7 @@ for t = 1:T
     
     locs1_ = (Ht * [locs2 ones([l, 1])]')'; 
     % compute SSD on euclidean distances
-    dv = locs1_(:,1:2) - locs1;
+    dv = locs1_(:,1:2) ./ locs1_(:,3) - locs1;
     ds = abs(sqrt(dv(:,1).^2 + dv(:,2).^2));
     % these indices are inliers without the sampled points
     i = ds < d;

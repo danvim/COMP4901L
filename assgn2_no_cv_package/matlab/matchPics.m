@@ -18,7 +18,7 @@ f2 = fast_corner_detect_9(I2, 30);
 [d2, l2] = computeBrief(I2, f2);
 
 %% Match features using the descriptors
-indexPairs = customMatchFeatures(d1, d2, 30);
+indexPairs = customMatchFeatures(d1, d2, 35);
 idx1 = indexPairs(:,1);
 idx2 = indexPairs(:,2);
 
