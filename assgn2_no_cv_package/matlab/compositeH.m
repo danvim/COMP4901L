@@ -5,7 +5,7 @@ function [ composite_img ] = compositeH( H2to1, template, img )
 % Note that the homography we compute is from the image to the template;
 % x_template = H2to1*x_photo
 % For warping the template to the image, we need to invert it.
-H_template_to_img = inv(H2to1);
+% H_template_to_img = inv(H2to1);
 
 %% Create mask of same size as template
 
@@ -14,5 +14,12 @@ H_template_to_img = inv(H2to1);
 %% Warp template by appropriate homography
 
 %% Use mask to combine the warped template and the image
+
+%% Using another method
+
+Htem = warpH(template, H2to1, size(img));
+mask = imbinarize(Htem, 0.001);
+composite_img = img;
+composite_img(mask ~= 0) = Htem(mask ~= 0);
 
 end
