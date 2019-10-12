@@ -20,12 +20,14 @@ if m1 ~= 0
     s1 = SQ_2 / m1;
     n1 = t1 * s1;
 else
+    s1 = 0;
     n1 = t1;
 end
 if m2 ~= 0
     s2 = SQ_2 / m2;
     n2 = t2 * s2;
 else
+    s2 = 0;
     n2 = t2;
 end
 
