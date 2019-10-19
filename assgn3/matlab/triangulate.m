@@ -9,3 +9,5 @@ function pts3d = triangulate(P1, pts1, P2, pts2 )
 %   Returns:
 %       Pts3d:  coordinates of 3D points with shape N x 3
 %
+
+pts3d = triangulate(pts1, pts2, pinv(P1), pinv(P2));
