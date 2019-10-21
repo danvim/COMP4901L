@@ -29,3 +29,15 @@ i=0
 \end{aligned}
 $$
 Which implies the $F_{3,3}$ element of the fundamental matrix $F$ is 0
+
+## 3.1.1 Implement the eight point algorithm
+
+$$
+\mathbf{F}=\begin{bmatrix}
+	0&		0&		0\\
+	0&		0&		-0.0015\\
+	0&		0.0015&	0.0064
+\end{bmatrix}
+$$
+
+![](saved_figures/epi_visual.png)
