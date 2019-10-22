@@ -42,6 +42,16 @@ $$
 
 ![](saved_figures/epi_visual.png)
 
+
+
+## 3.1.2 Find epipolar correspondences
+
+![](saved_figures/match_points.png)
+
+Manhatten distance was used with a sliding square window size of length 7.
+
+The operation consistently success at locating feature points of corners or dots and fails to find points of flatter regions. The reason of this is because there still are subtle color variations between the 2 images that may constitude to being "noise" in the operation. Without strong features of large gradient changes, it is quite hard to find the similar patch of space in the other region.
+
 ## 3.3 Pose Estimation
 
 ### 3.3.1 Estimate camera matrix P
