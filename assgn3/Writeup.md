@@ -56,3 +56,17 @@ Reprojected Error with noisy 2D points is 2.1979
 Pose Error with noisy 2D points is 0.0541
 ```
 
+### 3.3.2 Estimate intrinsic and extrinsic parameters of P
+
+```
+Intrinsic Error with clean 2D points is 0.0000
+Rotation Error with clean 2D points is 0.0000
+Translation Error with clean 2D points is 1.4656
+------------------------------
+Intrinsic Error with clean 2D points is 0.8852
+Rotation Error with clean 2D points is 0.1126
+Translation Error with clean 2D points is 1.5269
+```
+
+(should it be noisy instead)
+
