@@ -30,7 +30,8 @@ i=0
 $$
 Which implies the $F_{3,3}$ element of the fundamental matrix $F$ is 0
 
-## 3.1.1 Implement the eight point algorithm
+## 3.1 Sparse Reconstruction
+### 3.1.1 Implement the eight point algorithm
 
 $$
 \mathbf{F}=\begin{bmatrix}
@@ -44,7 +45,7 @@ $$
 
 
 
-## 3.1.2 Find epipolar correspondences
+### 3.1.2 Find epipolar correspondences
 
 ![](saved_figures/match_points.png)
 
@@ -52,7 +53,7 @@ Manhatten distance was used with a sliding square window size of length 7.
 
 The operation consistently success at locating feature points of corners or dots and fails to find points of flatter regions. The reason of this is because there still are subtle color variations between the 2 images that may constitude to being "noise" in the operation. Without strong features of large gradient changes, it is quite hard to find the similar patch of space in the other region.
 
-## 3.1.3 Write a function to compute the essential matrix
+### 3.1.3 Write a function to compute the essential matrix
 
 $$
 \mathbf{E} = \begin{bmatrix}
