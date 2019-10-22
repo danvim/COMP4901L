@@ -29,3 +29,44 @@ i=0
 \end{aligned}
 $$
 Which implies the $F_{3,3}$ element of the fundamental matrix $F$ is 0
+
+## 3.1.1 Implement the eight point algorithm
+
+$$
+\mathbf{F}=\begin{bmatrix}
+	0&		0&		0\\
+	0&		0&		-0.0015\\
+	0&		0.0015&	0.0064
+\end{bmatrix}
+$$
+
+![](saved_figures/epi_visual.png)
+
+## 3.3 Pose Estimation
+
+### 3.3.1 Estimate camera matrix P
+
+Output
+
+```
+Reprojected Error with clean 2D points is 0.0000
+Pose Error with clean 2D points is 0.0000
+------------------------------
+Reprojected Error with noisy 2D points is 2.1979
+Pose Error with noisy 2D points is 0.0541
+```
+
+### 3.3.2 Estimate intrinsic and extrinsic parameters of P
+
+```
+Intrinsic Error with clean 2D points is 0.0000
+Rotation Error with clean 2D points is 0.0000
+Translation Error with clean 2D points is 1.4656
+------------------------------
+Intrinsic Error with clean 2D points is 0.8852
+Rotation Error with clean 2D points is 0.1126
+Translation Error with clean 2D points is 1.5269
+```
+
+(should it be noisy instead)
+
