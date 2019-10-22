@@ -41,3 +41,18 @@ $$
 $$
 
 ![](saved_figures/epi_visual.png)
+
+## 3.3 Pose Estimation
+
+### 3.3.1 Estimate camera matrix P
+
+Output
+
+```
+Reprojected Error with clean 2D points is 0.0000
+Pose Error with clean 2D points is 0.0000
+------------------------------
+Reprojected Error with noisy 2D points is 2.1979
+Pose Error with noisy 2D points is 0.0541
+```
+
