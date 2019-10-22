@@ -9,3 +9,11 @@ function pts3d = triangulate(P1, pts1, P2, pts2 )
 %   Returns:
 %       Pts3d:  coordinates of 3D points with shape N x 3
 %
+
+Ex1 = [
+    1 0 0 0;
+    0 1 0 0;
+    0 0 1 0;
+    ];
+
+Ex2s = camera2(Ex1);
