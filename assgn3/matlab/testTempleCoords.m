@@ -38,7 +38,7 @@ Ex2s = camera2(E);
 
 %% 6 seee which P2 is good
 [N,~] = size(pts1);
-errors = zeros([4, 1]);
+scores = zeros([4, 1]);
 for i = 1:4
     figure;
     P2 = K2*Ex2s(:,:,i);
@@ -58,12 +58,16 @@ for i = 1:4
     disp(p2err);
     plot3(X(:,1),X(:,2),X(:,3),'.');
     axis equal;
+    
+    scores(i) = sum(X(:, 3) > 0);
 end
 
-P2 = Ex2s(:,:,1);
+[~, maxI] = max(scores);
+
+P2 = Ex2s(:,:,maxI);
 
 R1 = eye(3);
-t1 = zeros(3,1);
+t1 = zeros(3, 1);
 R2 = P2(1:3, 1:3);
 t2 = P2(:, 4);
 %% 7 save extrinsic parameters for dense reconstruction
