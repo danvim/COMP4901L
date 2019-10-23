@@ -79,6 +79,14 @@ Image 1 has a reprojection error of 0.4504 pixel, image 2 has a reprojection err
 
 
 
+## 3.2 Dense Reconstruction
+
+### 3.2.1 Image Rectification
+
+![rectified](saved_figures/rectified.jpg)
+
+
+
 ## 3.3 Pose Estimation
 
 ### 3.3.1 Estimate camera matrix P

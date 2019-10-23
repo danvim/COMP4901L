@@ -12,11 +12,18 @@ r3 = cross(r2,r1);
 R = [r1 r2 r3]';
 K = K2;
 
-t1n = -R*c1;
-t2n = -R*c2;
-
 R1n = R;
-R2n = R2 * R;
+
+c1 = -((K1*R1)\(K1*t1));
+c2 = -((K2*R2)\(K2*t2));
+r1 = (c2-c1) / norm(c1 - c2);
+r2 = cross(R2(3,:)', r1);
+r3 = cross(r1,r2);
+R2n = [r1 r2 r3]';
+
+
+t1n = -R1n*c1;
+t2n = -R2n*c2;
 
 K1n = K1;
 K2n = K2;
