@@ -1,15 +1,19 @@
 function [K, R, t] = estimate_params(P)
 % ESTIMATE_PARAMS computes the intrinsic K, rotation R and translation t from
 % given camera matrix P.
-[V,D] = eig(P*P');
-%[U,S,V] = svd(P);
+% [V,D] = eig(P*P');
+[U,S,V] = svd(P);
 %disp('S');
 %disp(S);
 %V = V';
-c = V(:,1);
+c = V(:,end);
+c = c(1:3) ./ c(4);
 %c = c(1:3)/c(4);
 [K,R] = RQ3(P(1:3,1:3));
-t = R*c;
+if det(R) < 0
+R = -R;
+end
+t = -R*c;
 
 %[K_,R_,t_,~,~] = DecomposeCamera(P);
 

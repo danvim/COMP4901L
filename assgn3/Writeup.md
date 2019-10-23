@@ -80,13 +80,14 @@ Pose Error with noisy 2D points is 0.0541
 ### 3.3.2 Estimate intrinsic and extrinsic parameters of P
 
 ```
+
 Intrinsic Error with clean 2D points is 0.0000
 Rotation Error with clean 2D points is 0.0000
-Translation Error with clean 2D points is 1.4656
+Translation Error with clean 2D points is 0.0000
 ------------------------------
-Intrinsic Error with clean 2D points is 0.8852
-Rotation Error with clean 2D points is 0.1126
-Translation Error with clean 2D points is 1.5269
+Intrinsic Error with clean 2D points is 0.9308
+Rotation Error with clean 2D points is 0.2760
+Translation Error with clean 2D points is 0.6063
 ```
 
 (should it be noisy instead)
@@ -101,7 +102,7 @@ Key: red cross is x, green circle is projection of X on the image
 
 ##### 3.3.3.5 Rotated CAD model
 
-![ec3.3.3.4](saved_figures/ec3.3.3.5.jpg)
+![ec3.3.3.4](saved_figures/ec3.3.3.5.png)
 
 ##### 3.3.3.6 Project the whole CAD onto the image
 
