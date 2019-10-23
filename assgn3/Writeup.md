@@ -10,7 +10,7 @@ $$
 \gamma = \pi - \alpha - \beta\\
 \frac{\sin\gamma}{b} = \frac{\sin\alpha}{d}\\
 d=\frac{b\sin\alpha}{\sin(\pi-\alpha-\beta)}=\frac{b\sin\alpha}{\sin(\alpha+\beta)}\\
-x=d\cos\beta=\frac{b\sin\alpha\cos\beta}{\sin(\alpha+\beta)}=\frac{b}{\cos\alpha\sin\beta}\\
+x=d\cos\beta=\frac{b\sin\alpha\cos\beta}{\sin(\alpha+\beta)}\\
 y=d\sin\beta=\frac{b\sin\alpha\sin\beta}{\sin(\alpha+\beta)}
 $$
 
@@ -62,6 +62,22 @@ $$
 	0.0076&		2.3114&		0.0026
 \end{bmatrix}
 $$
+
+#### 3.1.4 Implement triangulation
+
+A correct extrinsic camera should be able to project the 3D point back to the 2D coordinate in the image. When projecting the 2D coordinate from the images, they should be focus in front of the images, not the back since this violate the condition when the images are taken. Since we can indicate a 3D point is in front of the image if the 3D coordinate has Z component positive, the camera matrix which can project most point to positive Z has the highest likelyhood of being the correct camera matrix.
+
+Image 1 has a reprojection error of 0.4504 pixel, image 2 has a reprojection error of 0.4541 pixel
+
+#### 3.1.5 Write a test script that uses templeCoords
+
+![temple1](saved_figures/temple1.jpg)
+
+![temple2](saved_figures/temple2.jpg)
+
+![temple3](saved_figures/temple3.jpg)
+
+
 
 ## 3.3 Pose Estimation
 

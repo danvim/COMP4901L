@@ -55,8 +55,10 @@ for i = 1:4
     p2err = sum(sqrt(d(1,:)+d(2,:))) / N;
     disp('p2err');
     disp(p2err);
-    plot3(X(:,1), X(:,2),X(:,3),'.');
+    plot3(X(:,1),X(:,2),X(:,3),'.');
+    axis equal;
 end
+
 
 %% 7 save extrinsic parameters for dense reconstruction
 %save('../data/extrinsics.mat', 'R1', 't1', 'R2', 't2');
