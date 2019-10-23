@@ -10,10 +10,29 @@ function pts3d = triangulate(P1, pts1, P2, pts2 )
 %       Pts3d:  coordinates of 3D points with shape N x 3
 %
 
-Ex1 = [
-    1 0 0 0;
-    0 1 0 0;
-    0 0 1 0;
-    ];
+p11 = P1(1, :);
+p12 = P1(2, :);
+p13 = P1(3, :);
+p21 = P2(1, :);
+p22 = P2(2, :);
+p23 = P2(3, :);
 
-Ex2s = camera2(Ex1);
+[N,~] = size(pts1);
+
+pts3d = ones(N,3);
+
+for i = 1:N
+    x1 = pts1(i,1);
+    y1 = pts1(i,2);
+    x2 = pts2(i,1);
+    y2 = pts2(i,2);
+    A = [
+        y1*p13 - p12;
+        p11-x1*p13;
+        y2*p23 - p22;
+        p21 - x2*p23
+    ];
+    [V,D] = eig(A' * A);
+    X = V(:,4);
+    pts3d(i,:) = (X(1:3) ./ X(4))';
+end
