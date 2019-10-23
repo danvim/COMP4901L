@@ -14,7 +14,8 @@ t = R*c;
 %[K_,R_,t_,~,~] = DecomposeCamera(P);
 
 
-% Source:
+% Source for RQ decomposition:
+% DecomposeCamera is for testing only
 % https://www.mathworks.com/matlabcentral/answers/472171-how-to-calculate-the-camera-intrinsics-k-rotation-matrix-r-and-translation-vector-t-through-the-ca
 
 function [K, Rc_w, Pc, pp, pv] = DecomposeCamera(P)

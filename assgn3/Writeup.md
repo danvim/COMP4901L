@@ -91,3 +91,19 @@ Translation Error with clean 2D points is 1.5269
 
 (should it be noisy instead)
 
+#### 3.3.3 Project a CAD model to the image
+
+##### 3.3.3.4 plot the given x and projection of X
+
+Key: red cross is x, green circle is projection of X on the image
+
+![ec3.3.3.4](saved_figures/ec3.3.3.4.jpg)
+
+##### 3.3.3.5 Rotated CAD model
+
+![ec3.3.3.4](saved_figures/ec3.3.3.5.jpg)
+
+##### 3.3.3.6 Project the whole CAD onto the image
+
+![ec3.3.3.4](saved_figures/ec3.3.3.6.jpg)
+
