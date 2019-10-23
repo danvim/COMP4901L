@@ -38,6 +38,7 @@ Ex2s = camera2(E);
 
 %% 6 seee which P2 is good
 [N,~] = size(pts1);
+errors = zeros([4, 1]);
 for i = 1:4
     figure;
     P2 = K2*Ex2s(:,:,i);
@@ -60,5 +61,9 @@ for i = 1:4
 end
 
 
+R1 = P1(1:3, 1:3);
+t1 = P1(:, 4);
+R2 = P2(1:3, 1:3);
+t2 = P2(:, 4);
 %% 7 save extrinsic parameters for dense reconstruction
-%save('../data/extrinsics.mat', 'R1', 't1', 'R2', 't2');
+save('../data/extrinsics.mat', 'R1', 't1', 'R2', 't2');
