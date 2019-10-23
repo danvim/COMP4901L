@@ -89,6 +89,10 @@ Image 1 has a reprojection error of 0.4504 pixel, image 2 has a reprojection err
 
 ![disparity](ec/disparity.jpg)
 
+### 3.3.3 Depth map
+
+![disparity](ec/depth.jpg)
+
 ## 3.3 Pose Estimation
 
 ### 3.3.1 Estimate camera matrix P
