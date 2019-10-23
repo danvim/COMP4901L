@@ -60,9 +60,10 @@ for i = 1:4
     axis equal;
 end
 
+P2 = Ex2s(:,:,1);
 
-R1 = P1(1:3, 1:3);
-t1 = P1(:, 4);
+R1 = eye(3);
+t1 = zeros(3,1);
 R2 = P2(1:3, 1:3);
 t2 = P2(:, 4);
 %% 7 save extrinsic parameters for dense reconstruction
