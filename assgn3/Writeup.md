@@ -36,8 +36,8 @@ Which implies the $F_{3,3}$ element of the fundamental matrix $F$ is 0
 $$
 \mathbf{F}=\begin{bmatrix}
 	0&		0&		0\\
-	0&		0&		-0.0015\\
-	0&		0.0015&	0.0064
+	0&		0&		0.0005\\
+	0&		-0.0005&	0.0021
 \end{bmatrix}
 $$
 
@@ -57,9 +57,9 @@ The operation consistently success at locating feature points of corners or dots
 
 $$
 \mathbf{E} = \begin{bmatrix}
-	-0.0025&	0.0470&		0.0476\\
-	0.1863&		0.0127&		-2.2833\\
-	0.0076&		2.3114&		0.0026
+	0.0040  & -0.0433  & -0.0192 \\
+-0.1498 &  -0.0009   & 0.7264 \\
+0.0019  & -0.7352  & -0.0008 
 \end{bmatrix}
 $$
 
