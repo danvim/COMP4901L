@@ -12,16 +12,16 @@ for d = 0:maxDisp
     I2 = I2(1:H,1:W,:);
     D = im1 - I2;
     D = D.^2;
-%    D = conv2(D(:,:), ones(windowSize),'same');
+    D = conv2(D(:,:), ones(windowSize),'same');
 %    if d == 5
 %    disp(size(D));
 %    imshow(mat2gray(D));
 %    sfegesf;
 %    end
-    D(:,:,1) = conv2(D(:,:,1), ones(windowSize),'same');
-    D(:,:,2) = conv2(D(:,:,2), ones(windowSize),'same');
-    D(:,:,3) = conv2(D(:,:,3), ones(windowSize),'same');
-    D = double(D(:,:,1)+D(:,:,2)+D(:,:,3));
+%    D(:,:,1) = conv2(D(:,:,1), ones(windowSize),'same');
+%    D(:,:,2) = conv2(D(:,:,2), ones(windowSize),'same');
+%    D(:,:,3) = conv2(D(:,:,3), ones(windowSize),'same');
+%    D = double(D(:,:,1)+D(:,:,2)+D(:,:,3));
     Idx = D<scoreM;
     dd = d*ones(H,W);
     dispM(Idx) = dd(Idx);

@@ -85,7 +85,9 @@ Image 1 has a reprojection error of 0.4504 pixel, image 2 has a reprojection err
 
 ![rectified](saved_figures/rectified.jpg)
 
+### 3.2.2 Disparity
 
+![disparity](ec/disparity.jpg)
 
 ## 3.3 Pose Estimation
 
