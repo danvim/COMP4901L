@@ -24,7 +24,7 @@ A = [u.*x u.*y u v.*x v.*y v x y ones(size(u))];
 
 [~, ~, V] = svd(A);
 
-F3 = reshape(V(:, end), 3, 3)';
+F3 = reshape(V(:, end), 3, 3);
 
 %% Calculate Rank 2 F
 
