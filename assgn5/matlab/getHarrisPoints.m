@@ -23,9 +23,6 @@ function [P] = getHarrisPoints(I, a, k)
     P = zeros(a,2);
     P(:,1) = floor(p/h);
     P(:,2) = mod(p,h);
-
-%    figure;
-    imshow(mat2gray(H));
-%    hold on;
-%    plot(P(:,1),P(:,2),'ro');
-%    hold off;
+    o = ones(a,1);
+    P(:,1) = max(o,min(P(:,1) .* w, o*w));
+    P(:,2) = max(o,min(P(:,2) .* h, o*h));
