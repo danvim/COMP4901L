@@ -10,6 +10,5 @@ imshow(I);
 hold;
 P = getRandomPoints(I, a);
 plot(P(:,1), P(:,2), 'bo');
-figure;
 P = getHarrisPoints(I,a,0.06);
 plot(P(:,1), P(:,2), 'ro');
