@@ -25,13 +25,13 @@ parpool('local', numCores);
 
 %load the files and texton dictionary
 load('../data/traintest.mat','all_imagenames','mapping');
-dict = load('dictionaryHarris.mat');
+dict = load('dictionaryRandom.mat');
 dictionary = dict.dict';
 filterBank = createFilterBank();
 %load('dictionary.mat','filterBank','dictionary');
 
 source = '../data/';
-target = '../data/'; 
+target = '../randommat/';
 
 if ~exist(target,'dir')
     mkdir(target);
