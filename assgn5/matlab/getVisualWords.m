@@ -1,29 +1,18 @@
 function [wordMap] = getVisualWords(I, FB, dict)
-[h,w,~] = size(I);
-[n,~] = size(FB);
-[K,~] = size(dict);
-FR = extractFilterResponses(I, FB);
-size(FR)
-%FR = reshape(FR, h*w, 3*n);
-wordMap = zeros(h,w);
-D = inf(h,w);
-for k = 1:K
-    p = reshape(dict(k,:), 1,3*n);
-    for i = 1:h
-        for j = 1:w
-            r = reshape(FR(i,j,:), 1,3*n);
-%            size(p)
-%            size(r)
+    [h,w,~] = size(I);
+    [n,~] = size(FB);
+    [K,~] = size(dict);
+    FR = extractFilterResponses(I, FB);
+    wordMap = zeros(h,w);
+    D = inf(h,w);
+    for k = 1:K
+        p = reshape(dict(k,:), 1,3*n);
+        for i = 1:h
+            r = reshape(FR(i,:,:), w,3*n);
             d = pdist2(p, r);
-%            size(d)
-            if d < D(i,j)
-                D(i,j) = d;
-                wordMap(i,j) = k;
-            end
+            idx = d < D(i,:);
+            D(i,idx) = d(idx);
+            wordMap(i,idx) = k;
         end
     end
-%    d = pdist2(dict(k,:), FR);
-%    wordMap(d<D) = k;
-%    D(d<D) = d;
-end
-wordMap = reshape(wordMap, h, w);
+    wordMap = reshape(wordMap, h, w);

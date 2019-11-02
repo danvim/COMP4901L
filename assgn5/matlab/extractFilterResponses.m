@@ -1,5 +1,12 @@
 function [filterResponses] = extractFilterResponses(I, filterBank)
-    [L,A,B] = RGB2Lab(I);
+    [~,~,x] = size(I);
+    if x == 3
+        [L,A,B] = RGB2Lab(I);
+    else
+        L = I;
+        A = I;
+        B = I;
+    end
     [fno,~] = size(filterBank);
     [H,W] = size(L);
     filterResponses = zeros(H,W,fno*3);

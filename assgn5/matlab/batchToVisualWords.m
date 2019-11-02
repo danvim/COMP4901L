@@ -1,4 +1,4 @@
-function batchToVisualWords(numCores) 
+function batchToVisualWords(numCores)
 
 % Does parallel computation of the visual words 
 %
@@ -24,8 +24,11 @@ fprintf('Starting a pool of workers with %d cores\n', numCores);
 parpool('local', numCores);
 
 %load the files and texton dictionary
-load('traintest.mat','all_imagenames','mapping');
-load('dictionary.mat','filterBank','dictionary');
+load('../data/traintest.mat','all_imagenames','mapping');
+dict = load('dictionaryHarris.mat');
+dictionary = dict.dict';
+filterBank = createFilterBank();
+%load('dictionary.mat','filterBank','dictionary');
 
 source = '../data/';
 target = '../data/'; 

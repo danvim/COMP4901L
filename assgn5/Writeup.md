@@ -32,3 +32,21 @@ Blue circles are random points, red circles are harris corners
 
 ![](saved_figures/1.2im3.jpg)
 
+## Q2.1 Convert image to word map
+
+Left: original, Center: random, Right: Harris
+
+1. ![](saved_figures/2.1im1.jpg)
+
+2. ![](saved_figures/2.1im2.jpg)
+
+3. ![](saved_figures/2.1im3.jpg)
+
+4. ![](saved_figures/2.1im4.jpg)
+
+5. ![](saved_figures/2.1im5.jpg)
+
+6. ![](saved_figures/2.1im6.jpg)
+
+It can extrat some semantic meanings, for example, in figure 3, it can extract sky, tree and buildings. Harris seems to be better since it can extract semantic meanings of some fine details, such as in figure 2 it can extract many lights on the ceiling which the random one cannot extract.
+
