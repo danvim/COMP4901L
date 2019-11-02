@@ -20,7 +20,11 @@ Filter 6 on L,A,B respectively
 
 Filter 10 on  L,A,B respectively
 
-![1.1_im3](saved_figures/1.1im3.jpg)The LAB color system is based on human inceptions on color, in contrast with RGB system that is based on hardware requirement. L refer to the brightness, a and b refer to the color balance. We use Lab color system to simulate human inception on colors.
+![1.1_im3](saved_figures/1.1im3.jpg)
+
+There are some squares in the images, which is due to the lossy compression of JPG format.
+
+The LAB color system is based on human inceptions on color, in contrast with RGB system that is based on hardware requirement. L refer to the brightness, a and b refer to the color balance. We use Lab color system to simulate human inception on colors.
 
 ## 1.2 Collect sample of points from image
 
