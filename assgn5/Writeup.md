@@ -54,3 +54,49 @@ Left: original, Center: random, Right: Harris
 
 It can extrat some semantic meanings, for example, in figure 3, it can extract sky, tree and buildings. Harris seems to be better since it can extract semantic meanings of some fine details, such as in figure 2 it can extract many lights on the ceiling which the random one cannot extract.
 
+```
+confusion - harris/euclidean
+     7     3     2     1     2     1     2     3
+     2     9     5     2     2     0     2     0
+     3     4     7     2     2     3     1     1
+     1     0     2     4     3     5     4     2
+     0     1     3     1     7     1     2     0
+     0     0     0     3     0     7     1     0
+     2     1     0     7     4     1     6     0
+     5     2     1     0     0     2     2    14
+
+accuracy = 0.38125
+confusion - harris/chi2
+    11     2     0     1     0     0     1     5
+     1    11     4     1     2     1     2     0
+     3     5    11     3     1     4     2     1
+     1     0     2     5     0     3     5     1
+     0     1     3     1    16     0     2     0
+     0     1     0     4     0     8     0     0
+     1     0     0     5     1     3     6     0
+     3     0     0     0     0     1     2    13
+
+accuracy = 0.50625
+confusion - random/euclidean
+     9     4     6     3     2     2     4     3
+     2     9     3     2     2     3     2     2
+     4     4     9     1     5     3     4     0
+     1     0     1     6     2     2     5     1
+     0     1     1     2     6     0     1     0
+     0     2     0     1     0     4     0     0
+     2     0     0     3     3     4     4     0
+     2     0     0     2     0     2     0    14
+
+accuracy = 0.38125
+confusion - random/chi2
+    10     4     4     1     0     2     2     4
+     3    11     3     1     2     3     1     0
+     3     2    11     4     3     2     3     0
+     0     0     1     6     0     0     3     2
+     0     1     1     1    12     2     3     0
+     0     2     0     1     0     7     0     0
+     0     0     0     6     3     2     7     0
+     4     0     0     0     0     2     1    14
+
+accuracy = 0.4875
+```
