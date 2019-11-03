@@ -54,6 +54,10 @@ Left: original, Center: random, Right: Harris
 
 It can extrat some semantic meanings, for example, in figure 3, it can extract sky, tree and buildings. Harris seems to be better since it can extract semantic meanings of some fine details, such as in figure 2 it can extract many lights on the ceiling which the random one cannot extract.
 
+## Q3.2
+
+### 1NN
+
 ```
 confusion - harris/euclidean
      7     3     2     1     2     1     2     3
@@ -101,6 +105,11 @@ confusion - random/chi2
 accuracy = 0.4875
 ```
 
+Random and Harris performs similarly with Harris only better than Random by 0.01875 using "chi2" distance. As for euclidean distance, it performed exactly the same. This was a bit surprising to me, since I has a presumption that any conscious decision made to build a feature dictionary would be better than random. But it seems the result has proved me wrong.
+
+As for the difference metrics. Chi-square seemed to perform better. Reading from https://stats.stackexchange.com/questions/99171/why-is-euclidean-distance-not-a-good-metric-in-high-dimensions, which gives insight to the reason why, is because Euclidean distance is mainly useful in our three-dimensional world, and it's meaning would fade going to higher dimensions, as Euclidean distances of points in some ND world would just approach 1 in a normalized setting, to which the Nearest-Neightbor search problem would be invalid.  This would conclude that Euclidean distance is a bad candidate for the distance metrics. Chi-square, on the other hand, is a weighted Euclidean distance. For Euclidean distance is dominated by simply the deepest depth of the dimensions, Chi-square accounts for them by standardizing and normalizing the contributions of the dimensions as well as the corresponding variances. As such, it is commonly used in statistical analysis.
+
+### KNN
 
 ```
 best k = 14
@@ -116,3 +125,12 @@ best confusion
 
 best accuracy = 0.575
 ```
+
+![](saved_figures/accuracy_plot.png)
+
+The best observed $k$ is 14. As we can see from the plot, larger k does not always correspond to higher accuracy. The reason why there is an optimal $k$ is because:
+
+- $k$ should be sufficiently large to define the natural cluster of classes.
+- $k$ should not be too large to factor in outliers.
+
+The way we choose to resolve ties, is by choosing the smaller distance of the ties, which will be essentially the same as swapping to a smaller $k$ value in the NN search. This is also the easier route to implement.
