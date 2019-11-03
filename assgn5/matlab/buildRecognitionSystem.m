@@ -1,6 +1,6 @@
 load('../data/traintest.mat','train_imagenames');
 
-method = 'random';
+method = 'harris';
 
 
 if method == 'random'
@@ -8,6 +8,7 @@ Camel = 'Random';
 else
 Camel = 'Harris';
 end
+
 dictionary = load(['dictionary',Camel,'.mat'],'dict');
 dictionary = dictionary.dict;
 [K,n3] = size(dictionary);
