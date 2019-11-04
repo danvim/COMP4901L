@@ -146,3 +146,7 @@ Radial basis (non-linear) kernal accuracy = 61.875%
 The performance is better than nearest neighbors. One of the reason for this is that outliers of clusters would affect classification results in NN, whereas in SVM, the classification boundaries are smoothened, or regularized by the hyper-parameters like gamma $\gamma$, and cost $c$. Doing such would allow better classification by having boundaries conforming to the majorities of the dataset.
 
 In our experiment, the linear and non-linear kernels performed similarly after tuning, so we can conclude that a non-linear function does not do significantly better than a linear function (non-linear functions must perform at least the same as linear). This may be because with the high dimension of the dataset (100D features), most datapoints are linearly separable, so a linear kernel can separate most data points already, and such, non-linear kernels are not needed in this case.
+
+## QX.2
+
+We used SVM for the test. The accuracy is 56.25%, lower than our best SVM result by 7.5%, significantly worse. The reason could be because some important words that indicates the class is suppressed, and unimportant words amplified, incorrectly nudging the resulting word map to performing worse than unmodified.
