@@ -150,3 +150,12 @@ In our experiment, the linear and non-linear kernels performed similarly after t
 ## QX.2
 
 We used SVM for the test. The accuracy is 56.25%, lower than our best SVM result by 7.5%, significantly worse. The reason could be because some important words that indicates the class is suppressed, and unimportant words amplified, incorrectly nudging the resulting word map to performing worse than unmodified.
+
+## QX.3
+
+We have implemented the HOG and achieved 80% accuracy using SVM classification by the LibSVM libary.
+
+It calculates the histograms of all training and testing images within 1 minutes to output visionHOG.mat.
+
+So using HOG is both fast and accurate.
+
