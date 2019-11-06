@@ -40,11 +40,15 @@ Blue circles are random points, red circles are harris corners
 
 Left: original, Center: random, Right: Harris
 
+Airport
+
 1. ![](saved_figures/2.1im1.jpg)
 
 2. ![](saved_figures/2.1im2.jpg)
 
 3. ![](saved_figures/2.1im3.jpg)
+
+   Campus
 
 4. ![](saved_figures/2.1im4.jpg)
 
@@ -52,7 +56,7 @@ Left: original, Center: random, Right: Harris
 
 6. ![](saved_figures/2.1im6.jpg)
 
-It can extrat some semantic meanings, for example, in figure 3, it can extract sky, tree and buildings. Harris seems to be better since it can extract semantic meanings of some fine details, such as in figure 2 it can extract many lights on the ceiling which the random one cannot extract.
+It can extrat some semantic meanings, for example, in figure 4, it can extract sky, tree and buildings. Harris seems to be better since it can extract semantic meanings of some fine details, such as in figure 3 it can extract many lights on the ceiling which the random one cannot extract, and in figure 1 harris can take the whole window as a single class.
 
 ## Q3.2
 
