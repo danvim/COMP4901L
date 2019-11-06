@@ -1,10 +1,10 @@
 paths = [
-    "../data/airport/sun_aerinlrdodkqnypz.jpg",
-    "../data/airport/sun_agfgtuuejaamawrv.jpg",
-    "../data/airport/sun_afijvcdfbowiakrd.jpg",
-    "../data/campus/sun_abpxvcuxhqldcvln.jpg",
-    "../data/campus/sun_abslhphpiejdjmpz.jpg",
-    "../data/campus/sun_abwbqwhaqxskvyat.jpg"
+    "airport/sun_aerinlrdodkqnypz.jpg",
+    "airport/sun_agfgtuuejaamawrv.jpg",
+    "airport/sun_afijvcdfbowiakrd.jpg",
+    "campus/sun_abpxvcuxhqldcvln.jpg",
+    "campus/sun_abslhphpiejdjmpz.jpg",
+    "campus/sun_abwbqwhaqxskvyat.jpg"
 ]
 
 random = load('dictionaryRandom.mat');
@@ -14,12 +14,17 @@ FB = createFilterBank();
 
 for i = 1:6
     path = paths(i);
-    I = imread(path);
+    disp(['../data/',path]);
+    I = imread(join(['../data/',path],''));
     words = getVisualWords(I, FB, random.dict);
+    save(join(['../saved_mat/random/', path,'.mat'],''), 'words');
     IwordsRandom = label2rgb(words);
 
     words = getVisualWords(I, FB, harris.dict);
+    save(join(['../saved_mat/harris/', path,'.mat'],''), 'words');
     IwordsHarris = label2rgb(words);
     figure;
-    imshow([I,IwordsRandom, IwordsHarris]);
+    III = [I,IwordsRandom, IwordsHarris];
+    imshow(III);
+    imwrite(III,join(['../saved_mat/', path],''));
 end

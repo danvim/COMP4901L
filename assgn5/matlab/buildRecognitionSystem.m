@@ -3,7 +3,7 @@ load('../data/traintest.mat','train_imagenames', 'train_labels');
 method = 'harris';
 
 
-if method == 'random'
+if method == 'Harris'
 Camel = 'Random';
 else
 Camel = 'Harris';
