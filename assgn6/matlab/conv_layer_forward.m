@@ -8,13 +8,14 @@ function [output] = conv_layer_forward(input, layer, param)
 
 h_in = input.height;
 w_in = input.width;
-c = input.channel;
+c = input.channel
 batch_size = input.batch_size;
-k = layer.k;
+k = layer.k
 pad = layer.pad;
 stride = layer.stride;
-num = layer.num;
+num = layer.num
 group = layer.group;
+size(param.w)
 %group = 1;
 % resolve output shape
 h_out = (h_in + 2*pad - k) / stride + 1;
@@ -45,6 +46,18 @@ for n = 1:batch_size
     output.data(:, n) = tempoutput(:);
     clear tempoutput;
 end
+
+%for n = 1:batch_size
+%    input_n.data = input.data(:, n);
+%    % reshape the input feature to [k*k*c, h_out*w_out]
+%    % for ease of processing
+%    col = im2col_conv(input_n, layer, h_out, w_out);
+%    col = reshape(col, k*k*c, h_out*w_out);
+%    % inner product
+%    tempoutput = bsxfun(@plus, col'*param.w, param.b);
+%    output.data(:, n) = tempoutput(:);
+%    clear tempoutput;
+%end
 
 output.height = h_out;
 output.width = w_out;

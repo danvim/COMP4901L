@@ -9,7 +9,8 @@ function [output, P] = convnet_forward(params, layers, data)
     output{1}.batch_size = layers{1}.batch_size;
     output{1}.diff = 0;
     for i = 2:l-1
-        layers{i}.type
+%        layers{i}.type
+%        tic
         switch layers{i}.type
             case 'CONV'
                 output{i} = conv_layer_forward(output{i-1}, layers{i}, params{i-1});
@@ -22,6 +23,7 @@ function [output, P] = convnet_forward(params, layers, data)
             case 'ELU'
                 output{i} = elu_forward(output{i-1}, layers{i});
         end
+%        toc
     end
     if nargout > 1
         W = bsxfun(@plus, params{l-1}.w * output{l-1}.data, params{l-1}.b);
