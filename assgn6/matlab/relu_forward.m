@@ -6,4 +6,5 @@ output.batch_size = input.batch_size;
 
 % Replace the following line with your implementation.
 output.data = zeros(size(input.data));
+output.data(input.data > 0) = input.data(input.data>0);
 end

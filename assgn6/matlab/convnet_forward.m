@@ -9,6 +9,7 @@ function [output, P] = convnet_forward(params, layers, data)
     output{1}.batch_size = layers{1}.batch_size;
     output{1}.diff = 0;
     for i = 2:l-1
+        layers{i}.type
         switch layers{i}.type
             case 'CONV'
                 output{i} = conv_layer_forward(output{i-1}, layers{i}, params{i-1});
