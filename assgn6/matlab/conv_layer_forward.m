@@ -8,14 +8,14 @@ function [output] = conv_layer_forward(input, layer, param)
 
 h_in = input.height;
 w_in = input.width;
-c = input.channel
+c = input.channel                                 ;
 batch_size = input.batch_size;
-k = layer.k
+k = layer.k                                       ;
 pad = layer.pad;
 stride = layer.stride;
-num = layer.num
+num = layer.num                                   ;
 group = layer.group;
-size(param.w)
+size(param.w)                                     ;
 %group = 1;
 % resolve output shape
 h_out = (h_in + 2*pad - k) / stride + 1;
