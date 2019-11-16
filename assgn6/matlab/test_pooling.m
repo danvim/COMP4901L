@@ -26,4 +26,4 @@ correct_out =  [-0.26315789, -0.24842105, -0.20421053, -0.18947368, -0.14526316,
 
 err = rel_error(output.data, correct_out);
 
-fprintf('error of max pooling = %i \n',err);
+fprintf('error of max pooling forward = %i \n',err);

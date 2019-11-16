@@ -8,15 +8,13 @@ function [output] = conv_layer_forward(input, layer, param)
 
 h_in = input.height;
 w_in = input.width;
-c = input.channel                                 ;
+c = input.channel;
 batch_size = input.batch_size;
-k = layer.k                                       ;
+k = layer.k;
 pad = layer.pad;
 stride = layer.stride;
-num = layer.num                                   ;
-group = layer.group;
-size(param.w)                                     ;
-%group = 1;
+num = layer.num;
+
 % resolve output shape
 h_out = (h_in + 2*pad - k) / stride + 1;
 w_out = (w_in + 2*pad - k) / stride + 1;
@@ -30,34 +28,15 @@ input_n.channel = c;
 %% Fill in the code
 % Iterate over the each image in the batch, compute response,
 % Fill in the output datastructure with data, and the shape.
+
 for n = 1:batch_size
     input_n.data = input.data(:, n);
-    % reshape the input feature to [k*k*c, h_out*w_out]
-    % for ease of processing
     col = im2col_conv(input_n, layer, h_out, w_out);
     col = reshape(col, k*k*c, h_out*w_out);
-    for g = 1:group
-        col_g = col((g-1)*k*k*c/group + 1: g*k*k*c/group, :);
-        weigth = param.w(:, (g-1)*num/group + 1 : g*num/group);
-        b = param.b(:, (g-1)*num/group + 1 : g*num/group);
-        % inner product
-        tempoutput(:, (g-1)*num/group + 1 : g*num/group) = bsxfun(@plus, col_g'*weigth, b);
-    end
+    tempoutput = col'*param.w + param.b;
     output.data(:, n) = tempoutput(:);
     clear tempoutput;
 end
-
-%for n = 1:batch_size
-%    input_n.data = input.data(:, n);
-%    % reshape the input feature to [k*k*c, h_out*w_out]
-%    % for ease of processing
-%    col = im2col_conv(input_n, layer, h_out, w_out);
-%    col = reshape(col, k*k*c, h_out*w_out);
-%    % inner product
-%    tempoutput = bsxfun(@plus, col'*param.w, param.b);
-%    output.data(:, n) = tempoutput(:);
-%    clear tempoutput;
-%end
 
 output.height = h_out;
 output.width = w_out;

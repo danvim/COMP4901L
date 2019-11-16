@@ -4,5 +4,6 @@ function [param_grad, input_od] = inner_product_backward(output, input, layer, p
 param_grad.b = sum(output.diff');
 param_grad.w = input.data*(output.diff');
 
+%dx
 input_od = param.w*output.diff ;
 end
