@@ -139,3 +139,11 @@ confusion matrix:
 
 3 and 8 are also easily confused. If the start and end of 3 is closer to the middle, it looks like 8.
 
+## Part 5
+
+### Layer 2
+
+ ![5.1](saved_figures/5.1)
+
+### Layer 3  ![5.2](saved_figures/5.2) 
+
