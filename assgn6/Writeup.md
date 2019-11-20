@@ -147,3 +147,14 @@ confusion matrix:
 
 ### Layer 3  ![5.2](saved_figures/5.2) 
 
+Some filters are blank which mean they are not activated by this digit or their weights are zero 
+
+Some filters are almost the same
+
+Some filters are the blur version of the original image
+
+Some filters are extracting the vertical edges, some are extracting the horizontal edges
+
+Sine filters make the digit thicker, some make the digit thinner
+
+Layer 3 is RELU layer which makes all negative value in layer 2 zero, but negative value are displayed as black, so layer2 and layer3 display the same.
