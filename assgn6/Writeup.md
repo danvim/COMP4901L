@@ -12,11 +12,11 @@
 
 $$
 f(x,w)=\sigma(\sigma(x_1w_1)w_2 + x_2)\\
-\sigma(x)=\frac{1}{1+e^{-x}}\\
 $$
 
 $$
 \begin{align}
+\sigma(x)&=\frac{1}{1+e^{-x}}\\
 \frac{d\sigma}{dx} &= \frac{e^{-x}}{(1+e^{-x})^2}\\
 &=\frac{1+e^{-x}-1}{1+e^{-x}}\times\frac{1}{1+e^{-x}}\\
 &=(1-\sigma(x))\sigma(x)
@@ -30,27 +30,46 @@ $$
 \end{align}
 $$
 
+$$
+\text{At the current step,}\\
+\begin{align}
+\frac{\part{f}}{\part{w_2}} &= (1-\sigma(\sigma(1 \cdot 0)0 + 0))\sigma(\sigma(1 \cdot 0)0 + 0)\sigma(1 \cdot 0)\\
+&= 0.125
+\end{align}
+$$
+
+
+
 #### b)
 
 $$
+\text{L2 loss is defined as } (y_\text{true}- y_\text{predicted})^2\\
+y_\text{predicted} = f(x, w) = \sigma(\sigma(1 \cdot 0)0 + 0) = 0.5\\
+\therefore \frac{\part{L}}{\part{f}} = 2(5 - 0.5)(-1)=-9
+$$
+
+
+$$
 \begin{align}
-w_2 &= 0 - 0.5\frac{\part{f}}{\part{w_2}}\Bigr|_{x,w}\\
-&= 0 - 0.5\times0.125\\
-&= 0.0625
+w_2 &:= w_2 - \eta \frac{\part{L}}{\part{w_2}}\\
+&= 0 - 0.5\frac{\part{L}}{\part{f}}\frac{\part{f}}{\part{w_2}}\\
+&= 0 - 0.5\times-9\times0.125\\
+&= 0.5625
 \end{align}
 $$
 
 ### Q1.2
 
 $$
-\text{Suppose a linear function: }g(x)=\mathbf{W}\mathbf{x}+\mathbf{b}\\
+\text{Suppose a linear function: }g(x)=cx\\
+\text{Then for the output of a 2-layer network}\\
 \begin{align}
-\mathbf{W}_1(\mathbf{W}_2\mathbf{x}+\mathbf{b}_2)+\mathbf{b}_1&=\mathbf{W}_1\mathbf{W}_2\mathbf{x}+\mathbf{W}_1\mathbf{b}_2+\mathbf{b}_1\\
-&=\mathbf{W}'\mathbf{x}+\mathbf{b}'
+c(\mathbf{W}_1c(\mathbf{W}_2\mathbf{x}+\mathbf{b}_2)+\mathbf{b}_1) &= c(c\mathbf{W}_1\mathbf{W}_2\mathbf{x}+c\mathbf{W}_1\mathbf{b}_2+\mathbf{b}_1)\\
+&=c(\mathbf{W}'\mathbf{x}+\mathbf{b}')
 \end{align}
 $$
 
-The result is another linear function, just with a different set of weights and biases. As such, continuing on this logic, no matter how many number of hidden linear layers the network has, it will still be no different than with just 1 single linear layer.
+The result corresponds to the result of a single layer network, just with a different set of weights and biases. As such, continuing on this logic, no matter how many number of hidden linear layers the network has, it will still be no different than with just 1 single linear layer.
 
 ### Q1.3
 
