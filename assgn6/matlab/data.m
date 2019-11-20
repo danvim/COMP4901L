@@ -22,9 +22,9 @@ output_1 = reshape(output{1}.data, 28, 28);
 %imshow(output_1')
 
 
-for ii = 1:2
+for ii = 2:3
     figure;
-    output{ii};
+    o=output{ii};
     c = o.channel;
     x = o.data;
     w= o.width;
