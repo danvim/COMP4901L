@@ -145,7 +145,9 @@ confusion matrix:
 
  ![5.1](saved_figures/5.1)
 
-### Layer 3  ![5.2](saved_figures/5.2) 
+### Layer 3 
+
+![5.2](saved_figures/5.2) 
 
 Some filters are blank which mean they are not activated by this digit or their weights are zero 
 
@@ -158,3 +160,25 @@ Some filters are extracting the vertical edges, some are extracting the horizont
 Sine filters make the digit thicker, some make the digit thinner
 
 Layer 3 is RELU layer which makes all negative value in layer 2 zero, but negative value are displayed as black, so layer2 and layer3 display the same.
+
+## Part 6
+
+![5.1](saved_figures/image1.JPG.jpg)
+
+
+![5.1](saved_figures/image2.JPG.jpg)
+
+
+![5.1](saved_figures/image3.png.jpg)
+
+![5.1](saved_figures/image4.jpg.jpg)
+
+```
+image1.JPG contains 10 numbers:  1 2 3 4 5 6 3 8 7 0
+image2.JPG contains 10 numbers:  1 2 3 9 5 5 7 8 1 0
+image3.png contains 5 numbers:  6 0 6 2 4
+image4.jpg contains 54 numbers:  1 0 7 1 1 6 3 2 6 1 4 6 3 4 1 4 2 2 0 5 4 4 1 1 1 1 4 9 0 2 5 5 1 7 7 4 4 1 7 4 2 9 1 4 3 4 2 2 9 7 4 4 1 1
+```
+
+Some digits in image4 are disconnected
+
