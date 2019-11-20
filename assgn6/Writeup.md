@@ -203,5 +203,5 @@ image3.png contains 5 numbers:  6 0 6 2 4
 image4.jpg contains 54 numbers:  1 0 7 1 1 6 3 2 6 1 4 6 3 4 1 4 2 2 0 5 4 4 1 1 1 1 4 9 0 2 5 5 1 7 7 4 4 1 7 4 2 9 1 4 3 4 2 2 9 7 4 4 1 1
 ```
 
-Some digits in image4 are disconnected
+Some digits in image4 are disconnected, so misdetection happened.
 

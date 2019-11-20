@@ -1,6 +1,7 @@
 % foreground background threshold, [0,1]
 threshold = 0.7;
 addpath('../images')
+addpath('../matlab')
 paths={
 'image1.JPG'
 'image2.JPG'
@@ -38,15 +39,15 @@ skip = 0;
 identified = '';
 for c = 1:n
     idx = CC.PixelIdxList{c};
-    x = mod(idx, h)+1;
-    y = floor(idx / h)+1;
-    x0 = min(x);
-    y0 = min(y);
-    x1 = max(x);
-    y1 = max(y);
+    x = mod(idx, h);
+    y = floor(idx / h);
+    x0 = min(x)-1;
+    y0 = min(y)-1;
+    x1 = max(x)+1;
+    y1 = max(y)+1;
     ww = x1-x0+1;
     hh = y1-y0+1;
-    if ww==1 | hh==1
+    if ww<15 & hh<15
         skip = skip+1;
         continue;
     end
