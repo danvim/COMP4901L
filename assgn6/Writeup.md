@@ -141,23 +141,27 @@ confusion matrix:
 
 ## Part 5
 
+### Layer 1 (original image)
+
+ ![5.1](saved_figures/5.1.jpg)
+
 ### Layer 2
 
- ![5.1](saved_figures/5.1)
+ ![5.1](saved_figures/5.2.jpg)
 
 ### Layer 3 
 
-![5.2](saved_figures/5.2) 
+![5.1](saved_figures/5.3.jpg)
 
-Some filters are blank which mean they are not activated by this digit or their weights are zero 
+Some filters' output are blank which mean they are not activated by this digit or their weights are zero 
 
-Some filters are almost the same
+Some filters' output are almost the same with other filter output
 
-Some filters are the blur version of the original image
+Some filters' output are the blur version of the original image
 
 Some filters are extracting the vertical edges, some are extracting the horizontal edges
 
-Sine filters make the digit thicker, some make the digit thinner
+Some filters make the digit thicker, some make the digit thinner
 
 Layer 3 is RELU layer which makes all negative value in layer 2 zero, but negative value are displayed as black, so layer2 and layer3 display the same.
 
