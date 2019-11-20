@@ -83,7 +83,7 @@ Having weights as constant values would prevent the network from learning, becau
 
 #### a) AlexNet
 
-~60M
+~60M, from its paper https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf
 
 #### b) VGG-16
 
