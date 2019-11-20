@@ -73,7 +73,7 @@ The result corresponds to the result of a single layer network, just with a diff
 
 ### Q1.3
 
-This is because ReLUs are significantly faster than sigmoid, which is already quite fast. In contrast, ReLU ony need to do a single comparison to a value, whereas sigmoid needs to deal with $e^x$, divisions, subtractions and multiplications.
+ReLU, besides being faster in calculation, it also brings sparsity and a reduced likelihood of vanishing gradient. And in practice, ReLU seems to perform better than sigmoids. 
 
 ### Q.1.4
 
@@ -83,21 +83,7 @@ Having weights as constant values would prevent the network from learning, becau
 
 #### a) AlexNet
 
-| Layer                                   | Tensor    | Weights  | Biases | Parameters     |
-| --------------------------------------- | --------- | -------- | ------ | -------------- |
-| Input Image                             | 227x227x3 | 0        | 0      | 0              |
-| Conv-1 (n 96, size 11, stride 4, pad 0) | 55x55x96  | 34848    | 96     | 34944          |
-| MaxPool-1 (size 3, stride 2)            | 27x27x96  | 0        | 0      | 0              |
-| Conv-2 (n 256, size 5, stride 1, pad 2) | 27x27x256 | 614400   | 256    | 614656         |
-| MaxPool-2 (size 3, stride 2)            | 13x13x256 | 0        | 0      | 0              |
-| Conv-3 (n 384, size 3, stride 1, pad 1) | 13x13x384 | 884736   | 384    | 885120         |
-| Conv-4 (n 384, size 3, stride 1, pad 1) | 13x13x384 | 1327104  | 384    | 1327488        |
-| Conv-5 (n 256, size 3, stride 1, pad 1) | 13x13x256 | 884736   | 256    | 884992         |
-| MaxPool-3 (size 3, stride 2)            | 6x6x256   | 0        | 0      | 0              |
-| FC-1 (size 4096)                        | 4096x1    | 37748736 | 4096   | 37752832       |
-| FC-2 (size 4096)                        | 4096x1    | 16777216 | 4096   | 16781312       |
-| FC-3 (size 1000)                        | 1000x1    | 4096000  | 1000   | 4097000        |
-| **Total**                               |           |          |        | **62,378,344** |
+~60M
 
 #### b) VGG-16
 
@@ -131,7 +117,7 @@ Having weights as constant values would prevent the network from learning, becau
 
 From the paper, $\text{# of parameters} = (2.7 + 112 + 159 + 380 + 364 + 437 + 463 + 580 + 840 + 1072 + 1388 + 1000)\text{K} = 6797.7\text{K}$
 
-Nets ordered in desc. # of parameters: VGG16 > GoogLeNet > AlexNet
+Nets ordered in desc. # of parameters: VGG16 > AlexNet > GoogLeNet
 
 Comparing to VGG16, GoogLeNet has most of its parameters in its inception blocks, but VGG16 has most in its fully connected layers. By using instead, an average pool then a linear layer, not much more parameters are added to the model.
 
