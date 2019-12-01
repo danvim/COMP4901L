@@ -4,9 +4,9 @@
 >
 >CHEUNG Daniel (dcheungaa, 20423088)
 
-## Part 1
+## Part 1 Theory Questions
 
-## Q1
+### Q1.1: Calculating the Jacobian
 
 $$
 \let\vec\mathbf
@@ -42,4 +42,32 @@ x&	0&	y&	0&	1&	0\\
 \end{bmatrix}
 \end{align}
 $$
+
+### Q1.2: Computational complexity
+
+#### Initialization step
+
+Evaluate $\nabla\vec T$, which the runtime is $O(n)$
+
+Evaluate $\vec J=\frac{\part\vec{W}}{\part \vec{p}}$ at $\vec{p=0}$, 
+
+To compute $\nabla\vec{T}\frac{\part\vec{W}}{\part \vec{p}}$, since $\nabla\vec T$ is of deminsion $(n\times2)$ and $\frac{\part\vec{W}}{\part \vec{p}}$ is of deminsion $(2\times p)$, this multiplication will have computational cost $O(np)$.
+
+To compute Hessian matrix $\vec H=\vec{J^T}\vec J$, since $\vec J$ is of dimension $(n\times p)$, this multiplication will have computational cost $O(np^2)
+
+Thus the initialization cost will be $O(np+np^2)=O(np^2)$.
+
+#### Incremental step
+
+First compute $\vec{I(W(x;p))}$, which is $O(np)$.
+
+Then compute $[\vec{I}(\vec{W(x;p)})-\vec{T}]$, which is $O(n)$.
+
+Then compute $\sum_{\vec x}\vec{(\nabla T\frac{\part W}{\part p})^T}[\vec{I}(\vec{W(x;p)})-\vec{T(x)}]$, which is $O(pn)$.
+
+Then multiply previous result with inverse of Hessian to get $\Delta\vec p$, which is $O(p^3)$.
+
+Then update the warp function, which is $O(p^2)$
+
+Total $O(pn+p^3)$
 
