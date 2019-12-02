@@ -15,13 +15,13 @@ $$
 \vec{W}(\vec{x};\vec{p})=\begin{bmatrix}
 \vec{W}_x\\ \vec{W}_y\\ \vec{W}_1
 \end{bmatrix}\begin{bmatrix}
-x\\y\\1
+u\\v\\1
 \end{bmatrix}=\begin{bmatrix}
 1+p_1&		p_3&		p_5\\
 p_2&		1+p_4&		p_6\\
 0&			0&			1
 \end{bmatrix}\begin{bmatrix}
-x\\y\\1
+u\\v\\1
 \end{bmatrix}\\
 
 \text{and,}\\
@@ -31,17 +31,32 @@ $$
 
 $$
 \begin{align}
-\vec{J}&=\frac{\part\vec{W}}{\part\vec{p}}\\
-&=\begin{bmatrix}
-\frac{\part\vec{W}_x}{\part\vec{p}_1}& \dots& \frac{\part\vec{W}_x}{\part\vec{p}_6}\\
-\frac{\part\vec{W}_y}{\part\vec{p}_1}& \dots& \frac{\part\vec{W}_y}{\part\vec{p}_6}\\
+\frac{\part\vec{W}}{\part\vec{p}}&=\begin{bmatrix}
+\frac{\part\vec{W}_u}{\part\vec{p}_1}& \dots& \frac{\part\vec{W}_u}{\part\vec{p}_6}\\
+\frac{\part\vec{W}_v}{\part\vec{p}_1}& \dots& \frac{\part\vec{W}_v}{\part\vec{p}_6}\\
 \end{bmatrix}\\
 &=\begin{bmatrix}
-x&	0&	y&	0&	1&	0\\
-0&	x&	0&	y&	0&	1
+u&	0&	v&	0&	1&	0\\
+0&	u&	0&	v&	0&	1
 \end{bmatrix}
 \end{align}
 $$
+
+$$
+L = \sum_\vec{x}[\vec T(x) - \vec I(\vec W)]^2
+$$
+
+
+$$
+\begin{align}
+\vec{J} = \frac{\part L}{\part\vec p} &= \frac{\part L}{\part\vec I(\vec W)}\frac{\part\vec I(\vec W)}{\part \vec W}\frac{\part\vec W}{\part\vec p}\\
+&=-2\sum_\vec{x}[\vec T(x) - \vec I(\vec W)]\begin{bmatrix}\frac{\part\vec I}{\part u}& \frac{\part\vec I}{\part v}\end{bmatrix}\begin{bmatrix}
+u&	0&	v&	0&	1&	0\\
+0&	u&	0&	v&	0&	1
+\end{bmatrix}
+\end{align}
+$$
+
 
 ### Q1.2: Computational complexity
 
@@ -53,7 +68,7 @@ Evaluate $\vec J=\frac{\part\vec{W}}{\part \vec{p}}$ at $\vec{p=0}$,
 
 To compute $\nabla\vec{T}\frac{\part\vec{W}}{\part \vec{p}}$, since $\nabla\vec T$ is of deminsion $(n\times2)$ and $\frac{\part\vec{W}}{\part \vec{p}}$ is of deminsion $(2\times p)$, this multiplication will have computational cost $O(np)$.
 
-To compute Hessian matrix $\vec H=\vec{J^T}\vec J$, since $\vec J$ is of dimension $(n\times p)$, this multiplication will have computational cost $O(np^2)
+To compute Hessian matrix $\vec H=\vec{J^T}\vec J$, since $\vec J$ is of dimension $(n\times p)$, this multiplication will have computational cost $O(np^2)$
 
 Thus the initialization cost will be $O(np+np^2)=O(np^2)$.
 
