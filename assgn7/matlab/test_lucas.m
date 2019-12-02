@@ -1,9 +1,9 @@
 A = imread('../data/landing/frame0190_crop.jpg');
 B = imread('../data/landing/frame0194_crop.jpg');
 
-px = 482;
-py = 124;
-ww = 5;
+px = 453;
+py = 226;
+ww = 20;
 
 figure;
 imshow(A(py-ww:py+ww-1, px-ww:px+ww-1));

@@ -1,6 +1,6 @@
-px = 218;
-py = 218;
-ww = 20;
+px = 464;
+py = 103;
+ww = 50;
 
 tracker = [px-ww, py-ww, ww*2, ww*2];
 disp(tracker);
@@ -9,13 +9,17 @@ disp(tracker);
 %% Initialize the tracker
 figure;
 
-prev_frame = imread('../data/car/frame0020.jpg');
+prev_frame = imread('../data/landing/frame0190_crop.jpg');
 
-mov = VideoWriter('../results/car.mp4');
+mov = VideoWriter('../results/landing.mp4');
 open(mov);
 %% Start tracking
-for i = 20:280
-    new_frame = imread(sprintf('../data/car/frame0%03d.jpg', i));
+for i = 190:308
+    try
+        new_frame = imread(sprintf('../data/landing/frame0%03d_crop.jpg', i));
+    catch E
+        continue
+    end
     [u, v] = LucasKanade(prev_frame, new_frame, tracker);
 
     clf;
