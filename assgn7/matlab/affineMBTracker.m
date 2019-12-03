@@ -18,7 +18,7 @@ function [Wout] = affineMBTracker(img, tmp, rect, Win, context)
     Wout = Win;
 
     eps = 0.01;
-    eps_dp = 1.3;
+    eps_dp = 0.7;
 
     for i = 1:maxIter
 %        II = imwarp(img,affine2d(Wout'));
@@ -33,6 +33,7 @@ function [Wout] = affineMBTracker(img, tmp, rect, Win, context)
 %        reshape(X_,[w,h])
 %        reshape(Y_,[w,h])
         I = img(sub2ind(size(img),Y_,X_));
+        I = I.*(sum(T(:))/sum(I(:)));
 
 %        size(I)
 %        size(T)

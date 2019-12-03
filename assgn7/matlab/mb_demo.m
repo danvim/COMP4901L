@@ -1,15 +1,11 @@
 %tracker = [1 1 100 100]         % TODO Pick a bounding box in the format [x y w h]
-% traker for landing
 %tracker = [440    79   118    58];         % TODO Pick a bounding box in the format [x y w h]
-tracker = [244   43   69   36];         % TODO Pick a bounding box in the format [x y w h]
 %tracker = [415 63 170 95];         % TODO Pick a bounding box in the format [x y w h]
 % You can use ginput to get pixel coordinates
 
-% traker for car
-tracker = [115   96  189  160];
 
 
-do_car = 1;
+do_car = 0;
 
 %% Initialize the tracker
 figure;
@@ -19,16 +15,20 @@ if do_car == 1
     prev_frame = imread('../data/car/frame0020.jpg');
     mov = VideoWriter('../mb_results/car.mp4');
     r = 21:280;
+    % traker for car
+    tracker = [126   102   208   177];
 else
-    r = 191:308;
     prev_frame = imread('../data/landing/frame0190_crop.jpg');
     mov = VideoWriter('../mb_results/landing.mp4');
+    r = 191:308;
+    % traker for landing
+tracker = [440    79   118    58];         % TODO Pick a bounding box in the format [x y w h]
 end
 open(mov);
 %subplot(1,2,1)
 imshow(prev_frame);
 title('drag to create tracker')
-tracker = floor(getrect);
+%tracker = floor(getrect);
 x=tracker(1);
 y=tracker(2);
 w=tracker(3);
@@ -68,7 +68,7 @@ for i = r
 
     clf;
     hold on;
-%    s = subplot(1,2,1)
+%    s = subplot(1,2,1);
     imshow(im);
     title(sprintf('%i/%i',i,r(end)))
     rectangle('Position', new_tracker, 'EdgeColor', [1 1 0]);
@@ -77,7 +77,8 @@ for i = r
     writeVideo(mov, F.cdata);
 
     prev_frame = im;
-    tracker = new_tracker;
+%    tracker = new_tracker;
+    Win = Wout;
     fprintf("frame %i\n", i);
 %    pause;
 end

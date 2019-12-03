@@ -100,9 +100,9 @@ landing: `[552 126 20 20]`
 
 video in `mb_results`. initial rects:
 
-car: `[115   96  189  160]`
+car: `[126   102   208   177]`
 
-landing: `[244   43   69   36]`
+landing: `[440    79   118    58]`
 
 ### Q2.4
 
