@@ -34,12 +34,18 @@ for i = 1:maxIter
     it1 = it1 - it;
     %it1 = It1(y_+round(v):y_+h+round(v), x_+round(u):x_+w+round(u)) - it;
 %    vel = [ix(:), iy(:)] \ it1(:);
-    [vel,~] = robustfit([ix(:), iy(:)] , it1(:), 'huber');
+
+    A = [ix(:), iy(:)];
+%    size(A)
+%    size(it1(:))
+    vel = robustfit( A, it1(:), 'huber',1.345,'off');
+%    size(vel)
 %    vel = robustfit([ix(:), iy(:)] , it1(:), 'ols')
-    u = u + vel(2);
-    v = v + vel(1);
-%    u = u + vel(1);
-%    v = v + vel(2);
+%    u = u + vel(2);
+%    v = v + vel(3) + vel(1);
+%    vel = mestim([ix(:),iy(:)], it1(:));
+    u = u + vel(1);
+    v = v + vel(2);
     if u^2 + v^2 < th
         break;
     end
