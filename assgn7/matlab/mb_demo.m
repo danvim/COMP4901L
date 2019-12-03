@@ -1,10 +1,12 @@
 %tracker = [1 1 100 100]         % TODO Pick a bounding box in the format [x y w h]
 % traker for landing
-tracker = [440    79   118    58];         % TODO Pick a bounding box in the format [x y w h]
+%tracker = [440    79   118    58];         % TODO Pick a bounding box in the format [x y w h]
+tracker = [244   43   69   36];         % TODO Pick a bounding box in the format [x y w h]
 %tracker = [415 63 170 95];         % TODO Pick a bounding box in the format [x y w h]
 % You can use ginput to get pixel coordinates
 
-tracker = [212.0000  200.0000   20.0000   23.0000];
+% traker for car
+tracker = [115   96  189  160];
 
 
 do_car = 1;
