@@ -66,7 +66,7 @@ Evaluate $\nabla\vec T$, which the runtime is $O(n)$
 
 Evaluate $\vec J=\frac{\part\vec{W}}{\part \vec{p}}$ at $\vec{p=0}$, 
 
-To compute $\nabla\vec{T}\frac{\part\vec{W}}{\part \vec{p}}$, since $\nabla\vec T$ is of deminsion $(n\times2)$ and $\frac{\part\vec{W}}{\part \vec{p}}$ is of deminsion $(2\times p)$, this multiplication will have computational cost $O(np)$.
+To compute $\nabla\vec{T}\frac{\part\vec{W}}{\part \vec{p}}$, since $\nabla\vec T$ is of dimension $(n\times2)$ and $\frac{\part\vec{W}}{\part \vec{p}}$ is of dimension $(2\times p)$, this multiplication will have computational cost $O(np)$.
 
 To compute Hessian matrix $\vec H=\vec{J^T}\vec J$, since $\vec J$ is of dimension $(n\times p)$, this multiplication will have computational cost $O(np^2)$
 
@@ -85,4 +85,10 @@ Then multiply previous result with inverse of Hessian to get $\Delta\vec p$, whi
 Then update the warp function, which is $O(p^2)$
 
 Total $O(pn+p^3)$
+
+## Q2
+
+### Q2.4
+
+Small templates on spots or corners generally work best for Lucas-Kanade. Anything that would not exibit the barber-pole problem. The tracker tends to breakdown when large motions occur or when the brightness levels suddenly changed.
 
