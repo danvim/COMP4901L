@@ -106,11 +106,7 @@ landing: `[440    79   118    58]`
 
 ### Q2.4
 
-The license plate/ bright spot is good
-
-when go under the bridge it is possible to break
-
-because the illuminance level changed greatly, big different everywhere so difficult for the Jacobian to tell which direction is the steepest
+Small templates on spots or corners generally work best for Lucas-Kanade. Anything that would not exibit the barber-pole problem. The tracker tends to breakdown when large motions occur or when the brightness levels suddenly changed because there would be big different everywhere inside the tracker so it difficult for the Jacobian to tell which direction is the steepest
 
 ## Part 3
 
