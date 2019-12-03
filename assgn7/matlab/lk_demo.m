@@ -2,27 +2,32 @@ px = 552;
 py = 126;
 ww = 10;
 
-tracker = [px-ww, py-ww, ww*2, ww*2];
-%tracker = [180 180 36 36];
+%tracker = [px-ww, py-ww, ww*2, ww*2];
+tracker = [180 180 36 36];
+%tracker = [552 126 20 20];
 disp(tracker);
 % You can use ginput to get pixel coordinates
 
 %% Initialize the tracker
 figure;
 
-prev_frame = im2double(imread('../data/landing/frame0190_crop.jpg'));
+prev_frame = im2double(imread('../data/car/frame0020.jpg'));
 
-mov = VideoWriter('../lk_results/landing.mp4');
+mov = VideoWriter('../lk_results/car');
 open(mov);
 %% Start tracking
-for i = 190:308
+for i = 20:280
     try
-        new_frame = im2double(imread(sprintf('../data/landing/frame0%03d_crop.jpg', i)));
+        new_frame = im2double(imread(sprintf('../data/car/frame0%03d.jpg', i)));
     catch E
         continue
     end
     [u, v] = LucasKanade(prev_frame, new_frame, tracker);
 
+    prev_frame = new_frame;
+    tracker(1) = tracker(1) + u;
+    tracker(2) = tracker(2) + v;
+    
     clf;
     hold on;
     imshow(new_frame);   
@@ -31,10 +36,6 @@ for i = 190:308
     
     F = getframe(gca);
     writeVideo(mov, F.cdata);
-
-    prev_frame = new_frame;
-    tracker(1) = tracker(1) + u;
-    tracker(2) = tracker(2) + v;
 end
 close(mov);
 

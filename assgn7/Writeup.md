@@ -120,3 +120,13 @@ landing: `[440    79   118    58]`
 
 use `ec/ilk_demo.m` to run
 
+### Pyramid LK
+
+Video in `plk_results`, initial rect:
+
+car: `[188  175   85   34]`
+
+landing: `[440    82    52    44]`
+
+use `ec/plk_demo.m` to run
+
