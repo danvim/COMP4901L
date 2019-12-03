@@ -86,9 +86,41 @@ Then update the warp function, which is $O(p^2)$
 
 Total $O(pn+p^3)$
 
-## Q2
+## Part 2 Lucas-Kanade Tracker
+
+### Q2.1
+
+video in `lk_results/`. initial rects:
+
+car: `[180 180 36 36]`
+
+landing: `[552 126 20 20]`
+
+### Q2.3
+
+video in `mb_results`. initial rects:
+
+car: `[115   96  189  160]`
+
+landing: `[244   43   69   36]`
 
 ### Q2.4
 
-Small templates on spots or corners generally work best for Lucas-Kanade. Anything that would not exibit the barber-pole problem. The tracker tends to breakdown when large motions occur or when the brightness levels suddenly changed.
+The license plate/ bright spot is good
+
+when go under the bridge it is possible to break
+
+because the illuminance level changed greatly, big different everywhere so difficult for the Jacobian to tell which direction is the steepest
+
+## Part 3
+
+### Robust LK
+
+Video in `ilk_results`, initial rect:
+
+car: `[158  144   92   66]`
+
+landing: `[440    79   118    58]`
+
+use `ec/ilk_demo.m` to run
 

@@ -1,8 +1,9 @@
-px = 464;
-py = 103;
-ww = 50;
+px = 552;
+py = 126;
+ww = 10;
 
 tracker = [px-ww, py-ww, ww*2, ww*2];
+%tracker = [180 180 36 36];
 disp(tracker);
 % You can use ginput to get pixel coordinates
 
