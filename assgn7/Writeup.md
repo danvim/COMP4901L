@@ -110,7 +110,7 @@ Small templates on spots or corners generally work best for Lucas-Kanade. Anythi
 
 ## Part 3
 
-### Robust LK
+### Q3.1X Robust LK
 
 Video in `ilk_results`, initial rect:
 
@@ -120,7 +120,7 @@ landing: `[440    79   118    58]`
 
 use `ec/ilk_demo.m` to run
 
-### Pyramid LK
+### Q3.2X Pyramid LK
 
 Video in `plk_results`, initial rect:
 
@@ -130,3 +130,9 @@ landing: `[440    82    52    44]`
 
 use `ec/plk_demo.m` to run
 
+## Best Videos
+
+For the best outputs, the following methods are used for the clips in our `results/` folder.
+
+- Car: Robust LK
+- Landing: Pyramid LK
