@@ -53,7 +53,7 @@ $$
 &=-2\sum_\vec{x}[\vec T(x) - \vec I(\vec W)]\begin{bmatrix}\frac{\part\vec I}{\part u}& \frac{\part\vec I}{\part v}\end{bmatrix}\begin{bmatrix}
 u&	0&	v&	0&	1&	0\\
 0&	u&	0&	v&	0&	1
-\end{bmatrix}
+\end{bmatrix} 
 \end{align}
 $$
 
@@ -90,7 +90,7 @@ Total $O(pn+p^3)$
 
 ### Q2.1
 
-video in `lk_results/`. initial rects:
+initial rects:
 
 car: `[180 180 36 36]`
 
@@ -98,7 +98,7 @@ landing: `[552 126 20 20]`
 
 ### Q2.3
 
-video in `mb_results`. initial rects:
+initial rects:
 
 car: `[126   102   208   177]`
 
@@ -112,7 +112,7 @@ Small templates on spots or corners generally work best for Lucas-Kanade. Anythi
 
 ### Q3.1X Robust LK
 
-Video in `ilk_results`, initial rect:
+initial rect:
 
 car: `[158  144   92   66]`
 
@@ -122,7 +122,7 @@ use `ec/ilk_demo.m` to run
 
 ### Q3.2X Pyramid LK
 
-Video in `plk_results`, initial rect:
+initial rect:
 
 car: `[188  175   85   34]`
 
