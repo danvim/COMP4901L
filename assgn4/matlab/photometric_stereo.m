@@ -12,7 +12,6 @@ load('../data/PhotometricStereo/sources.mat');
 
 [h,w] = size(I1);
 
-%b = zeros(h,w,3)
 a = zeros(h,w);
 n = zeros(h,w,3);
 
@@ -36,12 +35,12 @@ title('normal');
 figure;
 subplot(1,2,1);
 L = [0.58, -0.58, -0.58];
-imshow(a.*n(:,:,1).*L(1)+n(:,:,2).*L(2)+n(:,:,3).*L(3));
+imshow(a.*max(0,n(:,:,1).*L(1)+n(:,:,2).*L(2)+n(:,:,3).*L(3)));
 title('[0.58, -0.58, -0.58]');
 
 subplot(1,2,2);
 L = [-0.58, -0.58, -0.58];
-imshow(a.*n(:,:,1).*L(1)+n(:,:,2).*L(2)+n(:,:,3).*L(3));
+imshow(a.*max(0,n(:,:,1).*L(1)+n(:,:,2).*L(2)+n(:,:,3).*L(3)));
 title('[-0.58, -0.58, -0.58]');
 
 %% reconstruct the 3D model
@@ -51,6 +50,6 @@ shading interp
 s = surf(1:w, 1:h, -integrate_frankot(n), 'EdgeColor', 'none', 'FaceColor', 'interp');
 title('reconstructed');
 
-material shiny;
+%material shiny;
 light               % create a light
 lighting gouraud    % preferred method for lighting curved surfaces

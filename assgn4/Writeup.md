@@ -39,7 +39,7 @@ $$
 
 The radiance of $X_1$ is $L(X_1)=L$, $X_2$ is $L(X_2)=L\cos\alpha$.
 
-By BRDF $f=L(X)/E(X)$ is same everywhere
+By BRDF $f=L(X)/E(X)$ is same everywhere for Lambertian source,
 
 $$
 \begin{aligned}
@@ -72,7 +72,7 @@ Some part of the rabbit should be blocked since the path to light is blocked by 
 
 #### 1.4.2 Nostrils error
 
-In using photometric stereo, we are making an assumption of no shadow, however nostrils have shadow. We can calculate albedo of nostrils using only photos that do not generate shadow around nostrils
+In using photometric stereo, we are making an assumption of no shadow, however nostrils have shadow. We can calculate albedo of nostrils using only photos that do not generate shadow around nostrils.
 
 #### 1.4.3 Stereo recover
 
@@ -88,3 +88,4 @@ In using photometric stereo, we are making an assumption of no shadow, however n
 
 ### 1.6 Color metamers
 
+$\psi \xi$
