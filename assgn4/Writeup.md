@@ -39,13 +39,13 @@ $$
 #### 1.2.2 Irradiance ratio
 
 $$
-E(\omega) = \int_\Omega L(\omega_{in})f(\omega_{in},\omega_{out})\cos\theta_{out} d\omega
+E(\omega) = \int_\Omega L(\omega_{in})\cos\theta_{out} d\omega
 $$
 
 Consider $X_1$ and $X_2$ as infinitesimal points, we have
 $$
-E(X_1) = L\frac{\rho}{\pi} \frac{dA}{D^2}\\
-E(X_2) = L\frac{\rho}{\pi}\cos\alpha \frac{dA\cos\alpha}{D^2}\\
+E(X_1) = L \frac{dA}{D^2}\\
+E(X_2) = L\cos\alpha \frac{dA\cos\alpha}{D^2}\\
 E(X_1)/E(X_2) = \frac{1}{\cos^2\alpha}
 $$
 
@@ -60,7 +60,7 @@ $$
 
 The received intensity is albedo constant times dot product of light direction and normal direction time light intensity. Assume the light intensity is always 1, albedo equals 1( all light are reflected). Light direction is same as same as view port direction, the dot product of light direction and view port direction would only keep the z-component of the normal vector. Multiply all of these for all pixels, we have the z component of the normal map.
 
-#### 1.3.2 light source at 45deg up, 45 deg right, 75deg right
+#### 1.3.3 light source at 45deg up, 45 deg right, 75deg right
 
 ![](saved_figures/rabbit_basic_render.jpg)
 
