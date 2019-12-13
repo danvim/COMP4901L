@@ -58,7 +58,7 @@ $$
 
 #### 1.3.2 light source at $\hat s = (0,0,1)$
 
-The received intensity is albedo constant times dot product of light direction and normal direction time light intensity. Assume the light intensity is always 1, albedo equals 1( all light are reflected). Light direction is same as same as view port direction, the dot product of light direction and view port direction would only keep the z-component of the normal vector. Multiply all of these for all pixels, we have the z component of the normal map.
+The pixel intensity is albedo constant times dot product of light direction and normal direction time light intensity. Assume the light intensity is always 1, albedo always 1. Light direction is same as view port direction (0,0,1), the dot product of light direction and any normal would only keep the z-component of the normal vector. Multiply all of these for all pixels, we have the z component of the normal map, aka N(:,:,3).
 
 #### 1.3.3 light source at 45deg up, 45 deg right, 75deg right
 
