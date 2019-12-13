@@ -28,6 +28,7 @@ imshow(a);
 title('albedo');
 subplot(1,2,2);
 quiver(1:w,1:h,n(1:h,1:w,1),n(1:h,1:w,2));
+set(gca, 'YDir','reverse');
 title('normal');
 
 %% render for different light source direction

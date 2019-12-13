@@ -3,6 +3,9 @@ load('../data/bunny.mat');
 X = 1:w;
 Y = 1:h;
 quiver(X,Y,N(Y,X,1),N(Y,X,2));
+set(gca, 'YDir','reverse');
+
+figure
 
 subplot(2,2,1);
 imshow(N(:,:,3))
