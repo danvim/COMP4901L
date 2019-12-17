@@ -25,7 +25,7 @@ $$
 
 The solid angle at $X_1$
 $$
-d\omega = \frac{dA}{D^2}
+d\omega_1 = \frac{dA}{D^2}
 $$
 
 
@@ -33,7 +33,7 @@ $$
 
 The solid angle at $X_2$
 $$
-d\omega = \frac{dA\cos\alpha}{D^2}
+d\omega_2 = \frac{dA}{(\frac D {\cos \alpha})^2}=\frac{dA \cos^2\alpha}{D^2}
 $$
 
 #### 1.2.2 Irradiance ratio
@@ -45,7 +45,7 @@ $$
 Consider $X_1$ and $X_2$ as infinitesimal points, we have
 $$
 E(X_1) = L \frac{dA}{D^2}\\
-E(X_2) = L\cos\alpha \frac{dA\cos\alpha}{D^2}\\
+E(X_2) = L\frac{dA\cos^2\alpha}{D^2}\\
 E(X_1)/E(X_2) = \frac{1}{\cos^2\alpha}
 $$
 
@@ -64,7 +64,7 @@ The pixel intensity is albedo constant times dot product of light direction and 
 
 ![](saved_figures/rabbit_basic_render.jpg)
 
-Some part of the rabbit should be blocked since the path to light is blocked by other part of the rabbit, aka shadow. Transparency and specularity are ignored. Distance attenuation is ignored. 
+Some part of the rabbit should be blocked since the path to light is blocked by other part of the rabbit, that is, shadows are ignored. z-component of normal along silhouette may not be 0.
 
 ### 1.4 Photometric stereo
 
